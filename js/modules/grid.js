@@ -46,18 +46,28 @@ export class Grid {
     };
 
     placeImg() {
-        const cellPicked = this.getCells(6);
+        const cellPicked = this.getCells(9);
         let cellOne = cellPicked[0];
         let cellTwo = cellPicked[1];
         let cellThree = cellPicked[2];
         let cellFour = cellPicked[3];
         let cellFive = cellPicked[4];
+        let cellSix = cellPicked[5];
+        let cellSeven = cellPicked[6];
+        let cellEight = cellPicked[7];
+        let cellNine = cellPicked[8];
         
-        cellOne.htmlElement.classList.add("air");
-        cellTwo.htmlElement.classList.add("fire");
-        cellThree.htmlElement.classList.add("water");
-        cellFour.htmlElement.classList.add("earth");
+        cellOne.htmlElement.classList.add("axe");
+        cellTwo.htmlElement.classList.add("sword");
+        cellThree.htmlElement.classList.add("flail");
+        cellFour.htmlElement.classList.add("bow");
         cellFive.htmlElement.classList.add("player-one");
+        cellSix.htmlElement.classList.add("player-two");
+        cellSeven.htmlElement.classList.add("wall");
+        cellEight.htmlElement.classList.add("wall");
+        cellNine.htmlElement.classList.add("wall");
+
+        
         console.log(cellOne);
 
     };

@@ -1,6 +1,5 @@
 
 #container {
-
 	position: relative;
 	top: 30px;
 	outline:2px solid #000;
@@ -8,7 +7,7 @@
 	margin:auto;
 	height:960px;
 	width:960px;
-	padding: 0;
+	background-color: #827397;
 }
 
 .grid {
@@ -19,27 +18,37 @@
 	display:inline-block;
 }
 
-.grid.air {
-	background-image: url("/img/air.png");
+.grid.axe {
+	background-image: url("/img/axe.png");
 	background-repeat: no-repeat;
 }
 
-.grid.fire {
-	background-image: url("/img/fire.png");
+.grid.sword {
+	background-image: url("/img/sword.png");
 	background-repeat: no-repeat;
 }
 
-.grid.water {
-	background-image: url("/img/water.png");
+.grid.flail {
+	background-image: url("/img/flail.png");
 	background-repeat: no-repeat;
 }
 
-.grid.earth {
-	background-image: url("/img/earth.png");
+.grid.bow {
+	background-image: url("/img/bow.png");
 	background-repeat: no-repeat;
 }
 
 .grid.player-one {
-	background-image: url("/img/iron-age-warrior.png");
+	background-image: url("/img/naija.png");
+	background-repeat: no-repeat;
+}
+
+.grid.player-two {
+	background-image: url("/img/hunter.png");
+	background-repeat: no-repeat;
+}
+
+.grid.wall {
+	background-image: url("/img/wall.png");
 	background-repeat: no-repeat;
 }

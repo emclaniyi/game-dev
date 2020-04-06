@@ -46,35 +46,37 @@ export class Grid {
     };
 
     placeImg() {
-        this.getCells();
-
-
-        let container = document.getElementById("container");
+        const cellPicked = this.getCells(6);
+        let cellOne = cellPicked[0];
+        cellOne.htmlElement.classList.add("weapon");
+        console.log(cellOne);
         
-        let air = document.createElement("img");
-        air.classList.add("weapon");
-        air.src = "img/air.png";
-        air.id = "air"
-        container.appendChild(air);
+        let img = document.createElement("img");
+        // let air = cellOne.htmlElement.classList.add("weapon");
 
-        let fire = document.createElement("img");
-        fire.classList.add("weapon");
-        fire.src = "img/fire.png";
-        fire.id = "fire";
+        // console.log(air);
+        // air.src = "img/air.png";
+        // air.id = "air"
+        // grid.appendChild(air);
 
-        let earth = document.createElement("img");
-        earth.classList.add("weapon");
-        earth.src = "img/earth.png";
-        earth.id = "earth";
+        // let fire = document.createElement("img");
+        // fire.classList.add("weapon");
+        // fire.src = "img/fire.png";
+        // fire.id = "fire";
 
-        let water = document.createElement("img");
-        water.classList.add("weapon");
-        water.src = "img/water.png";
-        water.id = "water";
+        // let earth = document.createElement("img");
+        // earth.classList.add("weapon");
+        // earth.src = "img/earth.png";
+        // earth.id = "earth";
+
+        // let water = document.createElement("img");
+        // water.classList.add("weapon");
+        // water.src = "img/water.png";
+        // water.id = "water";
        
 
         //newBoard.appendChild(weapon);
-        console.log(air, fire, earth);
+        //console.log(air, fire, earth);
         //let src = document.getElementById('container');
 
     };

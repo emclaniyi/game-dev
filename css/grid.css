@@ -19,6 +19,7 @@
 	display:inline-block;
 }
 
-.weapom #air {
-	background-image: url("img/air.png");
+.grid.weapon {
+	background-image: url("/img/air.png");
+	background-repeat: no-repeat;
 }

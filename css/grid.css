@@ -2,7 +2,7 @@
 #container {
 	position: relative;
 	top: 30px;
-	outline:2px solid #000;
+	outline:2px solid #363062;
 	font-size: 0;
 	margin:auto;
 	height:960px;
@@ -14,7 +14,7 @@
 	margin:0;
 	padding:0;
 	border: none;
-	outline:1px solid #000;
+	outline:1px solid #363062;
 	display:inline-block;
 }
 
@@ -41,6 +41,7 @@
 .grid.player-one {
 	background-image: url("/img/naija.png");
 	background-repeat: no-repeat;
+	
 }
 
 .grid.player-two {

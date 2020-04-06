@@ -68,6 +68,8 @@ export class Grid {
         cellNine.htmlElement.classList.add("wall");
 
         
+
+        
         console.log(cellOne);
 
     };

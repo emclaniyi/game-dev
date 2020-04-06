@@ -23,3 +23,23 @@
 	background-image: url("/img/air.png");
 	background-repeat: no-repeat;
 }
+
+.grid.fire {
+	background-image: url("/img/fire.png");
+	background-repeat: no-repeat;
+}
+
+.grid.water {
+	background-image: url("/img/water.png");
+	background-repeat: no-repeat;
+}
+
+.grid.earth {
+	background-image: url("/img/earth.png");
+	background-repeat: no-repeat;
+}
+
+.grid.player-one {
+	background-image: url("/img/iron-age-warrior.png");
+	background-repeat: no-repeat;
+}

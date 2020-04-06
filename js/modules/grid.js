@@ -48,36 +48,17 @@ export class Grid {
     placeImg() {
         const cellPicked = this.getCells(6);
         let cellOne = cellPicked[0];
-        cellOne.htmlElement.classList.add("weapon");
-        console.log(cellOne);
+        let cellTwo = cellPicked[1];
+        let cellThree = cellPicked[2];
+        let cellFour = cellPicked[3];
+        let cellFive = cellPicked[4];
         
-        let img = document.createElement("img");
-        // let air = cellOne.htmlElement.classList.add("weapon");
-
-        // console.log(air);
-        // air.src = "img/air.png";
-        // air.id = "air"
-        // grid.appendChild(air);
-
-        // let fire = document.createElement("img");
-        // fire.classList.add("weapon");
-        // fire.src = "img/fire.png";
-        // fire.id = "fire";
-
-        // let earth = document.createElement("img");
-        // earth.classList.add("weapon");
-        // earth.src = "img/earth.png";
-        // earth.id = "earth";
-
-        // let water = document.createElement("img");
-        // water.classList.add("weapon");
-        // water.src = "img/water.png";
-        // water.id = "water";
-       
-
-        //newBoard.appendChild(weapon);
-        //console.log(air, fire, earth);
-        //let src = document.getElementById('container');
+        cellOne.htmlElement.classList.add("air");
+        cellTwo.htmlElement.classList.add("fire");
+        cellThree.htmlElement.classList.add("water");
+        cellFour.htmlElement.classList.add("earth");
+        cellFive.htmlElement.classList.add("player-one");
+        console.log(cellOne);
 
     };
     

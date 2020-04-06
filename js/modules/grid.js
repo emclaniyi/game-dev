@@ -12,7 +12,6 @@ export class Grid {
         
         for (let row = 0; row < this.numRow; row++) {
             for (let col = 0; col < this.numCol; col++){
-                let count = 0;
 
                 let cellDiv = document.createElement("div");
                 cellDiv.classList.add("grid");
@@ -36,7 +35,6 @@ export class Grid {
 
    getCells(numOfCells) {
         let boardCopy= this.elementsInBoard();
-        console.log(boardCopy);
         let newBoard = [];
 
         for(let i = 0; i < numOfCells; i++) {
@@ -48,10 +46,37 @@ export class Grid {
     };
 
     placeImg() {
-        let img = document.createElement("img");
-        img.src = "img/air.png";
-        let src = document.getElementById('container');
-        src.appendChild(img);
+        this.getCells();
+
+
+        let container = document.getElementById("container");
+        
+        let air = document.createElement("img");
+        air.classList.add("weapon");
+        air.src = "img/air.png";
+        air.id = "air"
+        container.appendChild(air);
+
+        let fire = document.createElement("img");
+        fire.classList.add("weapon");
+        fire.src = "img/fire.png";
+        fire.id = "fire";
+
+        let earth = document.createElement("img");
+        earth.classList.add("weapon");
+        earth.src = "img/earth.png";
+        earth.id = "earth";
+
+        let water = document.createElement("img");
+        water.classList.add("weapon");
+        water.src = "img/water.png";
+        water.id = "water";
+       
+
+        //newBoard.appendChild(weapon);
+        console.log(air, fire, earth);
+        //let src = document.getElementById('container');
+
     };
     
 };

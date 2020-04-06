@@ -18,3 +18,7 @@
 	outline:1px solid #000;
 	display:inline-block;
 }
+
+.weapom #air {
+	background-image: url("img/air.png");
+}

@@ -1,23 +1,33 @@
 export class Weapon {
-    constructor(type) {
-        this.type = type;
+    constructor() {
         this.active = false;
         this.damage = false;
     };
 
-    active(yourChoice) {
-        console.log(yourChoice);
+    isActive() {
         let imageDatabase = {
-            'air' : document.getElementById('air').src,
-            'earth': document.getElementById('earth').src,
-            'fire': document.getElementById('fire').src,
-            'water': document.getElementById('water').src
-    }
+            'axe' : document.getElementsByClassName('axe'),
+            'bow': document.getElementsByClassName('bow'),
+            'flail': document.getElementsByClassName('flail'),
+            'sword': document.getElementsByClassName('sword')
+        }
+        
+        let axe = document.getElementsByClassName('axe');
 
-        let player1, player2;
         
-        
-        
+        axe.addEventListener('click', function() {
+            alert("Hello World");
+        });
+
+        // axe.addEventListener('click', function(){
+        //     prompt("this should work");
+        //     //axe.style.boxShadow = "0px 10px 50px rgba(255, 0, 0, 1)";
+        // });
+
+        //console.log(imageDatabase);
+    };
+
+    strike() {
 
     };
 
@@ -25,7 +35,5 @@ export class Weapon {
 
     };
 
-    strike() {
-
-    }
+   
 }

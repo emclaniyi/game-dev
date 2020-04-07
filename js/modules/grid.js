@@ -47,15 +47,16 @@ export class Grid {
 
     placeImg() {
         const cellPicked = this.getCells(9);
-        let cellOne = cellPicked[0];
-        let cellTwo = cellPicked[1];
-        let cellThree = cellPicked[2];
-        let cellFour = cellPicked[3];
-        let cellFive = cellPicked[4];
-        let cellSix = cellPicked[5];
-        let cellSeven = cellPicked[6];
-        let cellEight = cellPicked[7];
-        let cellNine = cellPicked[8];
+        let cellOne, cellTwo, cellThree, cellFour, cellFive, cellSix, cellSeven, cellEight, cellNine;
+        cellOne = cellPicked[0];
+        cellTwo = cellPicked[1];
+        cellThree = cellPicked[2];
+        cellFour = cellPicked[3];
+        cellFive = cellPicked[4];
+        cellSix = cellPicked[5];
+        cellSeven = cellPicked[6];
+        cellEight = cellPicked[7];
+        cellNine = cellPicked[8];
         
         cellOne.htmlElement.classList.add("axe");
         cellTwo.htmlElement.classList.add("sword");
@@ -67,11 +68,7 @@ export class Grid {
         cellEight.htmlElement.classList.add("wall");
         cellNine.htmlElement.classList.add("wall");
 
-        
-
-        
-        console.log(cellOne);
-
+        this.cellPicked = cellPicked;
     };
     
 };

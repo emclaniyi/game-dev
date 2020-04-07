@@ -20,22 +20,22 @@
 	outline-style: dotted;
 }
 
-.grid.axe {
+#weapon-0 {
 	background-image: url("/img/axe.png");
 	background-repeat: no-repeat;
 }
 
-.grid.sword {
+#weapon-1 {
 	background-image: url("/img/sword.png");
 	background-repeat: no-repeat;
 }
 
-.grid.flail {
+#weapon-2 {
 	background-image: url("/img/flail.png");
 	background-repeat: no-repeat;
 }
 
-.grid.bow {
+#weapon-3{
 	background-image: url("/img/bow.png");
 	background-repeat: no-repeat;
 	
@@ -57,5 +57,4 @@
 .grid.wall {
 	background-image: url("/img/wall.png");
 	background-repeat: no-repeat;
-	box-shadow: 0px 10px 50px rgba(0, 0, 0, 1);
 }

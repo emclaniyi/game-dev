@@ -4,27 +4,30 @@ export class Weapon {
         this.damage = false;
     };
 
-    isActive() {
-        let imageDatabase = {
-            'axe' : document.getElementsByClassName('axe'),
-            'bow': document.getElementsByClassName('bow'),
-            'flail': document.getElementsByClassName('flail'),
-            'sword': document.getElementsByClassName('sword')
-        }
-        
-        let axe = document.getElementsByClassName('axe');
+    weaponInGame(){
+        let weaponArray = [];
 
-        
-        axe.addEventListener('click', function() {
-            alert("Hello World");
-        });
+        let weaponElements = document.querySelectorAll(".weapon");
+        for (var i = 0; i < weaponElements.length; i++) {
+            weaponElements[i].id = 'weapon-' + i;
+            weaponArray.push(weaponElements[i].id);
+        };
+        return weaponArray;
 
-        // axe.addEventListener('click', function(){
-        //     prompt("this should work");
-        //     //axe.style.boxShadow = "0px 10px 50px rgba(255, 0, 0, 1)";
-        // });
+    };
 
-        //console.log(imageDatabase);
+
+    isWeaponActive() {
+        let weaponCopy = this.weaponInGame();
+
+        for (let weaponId of weaponCopy){
+            let weaponPicked = document.getElementById(weaponId);
+            weaponPicked.addEventListener('click', () => {
+                this.active = true;
+                weaponPicked.style.boxShadow = "0px 10px 50px rgba(255, 0, 0, 1)";
+            });
+        };
+
     };
 
     strike() {

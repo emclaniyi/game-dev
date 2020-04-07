@@ -7,4 +7,4 @@ myGrid.draw();
 myGrid.placeImg();
 
 let myWeapon = new Weapon();
-myWeapon.isActive();
+myWeapon.isWeaponActive();

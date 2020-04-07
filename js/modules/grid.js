@@ -58,10 +58,12 @@ export class Grid {
         cellEight = cellPicked[7];
         cellNine = cellPicked[8];
         
-        cellOne.htmlElement.classList.add("axe");
-        cellTwo.htmlElement.classList.add("sword");
-        cellThree.htmlElement.classList.add("flail");
-        cellFour.htmlElement.classList.add("bow");
+
+        
+        cellOne.htmlElement.classList.add("weapon");
+        cellTwo.htmlElement.classList.add("weapon");
+        cellThree.htmlElement.classList.add("weapon");
+        cellFour.htmlElement.classList.add("weapon");
         cellFive.htmlElement.classList.add("player-one");
         cellSix.htmlElement.classList.add("player-two");
         cellSeven.htmlElement.classList.add("wall");

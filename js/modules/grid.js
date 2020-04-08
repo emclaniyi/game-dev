@@ -75,7 +75,7 @@ export class Grid {
         return cellPicked;
     };
 
-    isAdj() {
+    cordinate() {
         let calc = this.cellPicked.slice();
         let x1 = calc[4].x;
         let y1 = calc[4].y;
@@ -85,13 +85,9 @@ export class Grid {
         let xCord = (x2 - x1);
         let yCord = (y2 - y1);
 
-        let adj =  Math.floor(Math.sqrt((Math.pow(xCord, 2) + Math.pow(yCord, 2))));
+        let adjacent =  Math.floor(Math.sqrt((Math.pow(xCord, 2) + Math.pow(yCord, 2))));
 
-        console.log( adj);
-
-        calc.cellFive;
-        console.log('CALC', calc[4].x, calc[5].x);
-
+        return adjacent;
     }
     
 };

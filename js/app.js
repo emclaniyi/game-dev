@@ -6,6 +6,7 @@ import { Player } from './modules/player.js'
 let myGrid = new Grid(6,6);
 myGrid.draw();
 myGrid.placeImg();
+myGrid.isAdj();
 
 let myWeapon = new Weapon();
 myWeapon.isWeaponActive();

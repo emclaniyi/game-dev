@@ -74,6 +74,25 @@ export class Grid {
 
         return cellPicked;
     };
+
+    isAdj() {
+        let calc = this.cellPicked.slice();
+        let x1 = calc[4].x;
+        let y1 = calc[4].y;
+        let x2 = calc[5].x;
+        let y2 = calc[5].y;
+
+        let xCord = (x2 - x1);
+        let yCord = (y2 - y1);
+
+        let adj =  Math.floor(Math.sqrt((Math.pow(xCord, 2) + Math.pow(yCord, 2))));
+
+        console.log( adj);
+
+        calc.cellFive;
+        console.log('CALC', calc[4].x, calc[5].x);
+
+    }
     
 };
 

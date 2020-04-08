@@ -45,50 +45,27 @@ export class Grid {
         return newBoard;
     };
 
-    placeImg() {
-        const cellPicked = this.getCells(9);
-        let cellOne, cellTwo, cellThree, cellFour, cellFive, cellSix, cellSeven, cellEight, cellNine;
-        cellOne = cellPicked[0];
-        cellTwo = cellPicked[1];
-        cellThree = cellPicked[2];
-        cellFour = cellPicked[3];
-        cellFive = cellPicked[4];
-        cellSix = cellPicked[5];
-        cellSeven = cellPicked[6];
-        cellEight = cellPicked[7];
-        cellNine = cellPicked[8];
+    placeImg(players, weapons, wallNum) {
+        let cellPicked = this.getCells(players.length + weapons.length + wallNum);
+
+        cellPicked[0].player = players[0];
+        cellPicked[0].htmlElement.classList.add(players[0].name);
+
+        let playerOneCell = cellPicked[0];
+        cellPicked.splice(0, 1);
+
+        for (let i = 0; i < cellPicked.length; i++) {
+            if (!playerOneCell.isAdjacent(cellPicked[i])) {
+                cellPicked[i].player = players[1];
+                cellPicked[i].htmlElement.classList.add(players[1].name);
+
+                cellPicked.splice(i, 1);
+                break;
+
+            }
+        }
         
-
-        
-        cellOne.htmlElement.classList.add("weapon");
-        cellTwo.htmlElement.classList.add("weapon");
-        cellThree.htmlElement.classList.add("weapon");
-        cellFour.htmlElement.classList.add("weapon");
-        cellFive.htmlElement.classList.add("player");
-        cellSix.htmlElement.classList.add("player");
-        cellSeven.htmlElement.classList.add("wall");
-        cellEight.htmlElement.classList.add("wall");
-        cellNine.htmlElement.classList.add("wall");
-
-        this.cellPicked = cellPicked;
-
-        return cellPicked;
     };
 
-    cordinate() {
-        let calc = this.cellPicked.slice();
-        let x1 = calc[4].x;
-        let y1 = calc[4].y;
-        let x2 = calc[5].x;
-        let y2 = calc[5].y;
-
-        let xCord = (x2 - x1);
-        let yCord = (y2 - y1);
-
-        let adjacent =  Math.floor(Math.sqrt((Math.pow(xCord, 2) + Math.pow(yCord, 2))));
-
-        return adjacent;
-    }
-    
 };
 

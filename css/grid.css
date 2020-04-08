@@ -1,13 +1,12 @@
 
 #container {
 	position: relative;
-	top: 30px;
 	border:5px solid #be79df;
 	border-radius: 50px;
 	font-size: 0;
 	margin:auto;
-	height:960px;
-	width:960px;
+	height:720px;
+	width:920px;
 	background-color: #ffffff;
 }
 

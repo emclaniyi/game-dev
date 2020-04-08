@@ -64,13 +64,15 @@ export class Grid {
         cellTwo.htmlElement.classList.add("weapon");
         cellThree.htmlElement.classList.add("weapon");
         cellFour.htmlElement.classList.add("weapon");
-        cellFive.htmlElement.classList.add("player-one");
-        cellSix.htmlElement.classList.add("player-two");
+        cellFive.htmlElement.classList.add("player");
+        cellSix.htmlElement.classList.add("player");
         cellSeven.htmlElement.classList.add("wall");
         cellEight.htmlElement.classList.add("wall");
         cellNine.htmlElement.classList.add("wall");
 
         this.cellPicked = cellPicked;
+
+        return cellPicked;
     };
     
 };

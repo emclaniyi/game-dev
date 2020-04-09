@@ -22,10 +22,6 @@ export class Cell{
 
         let adjacent =  (Math.pow(xCord, 2) + Math.pow(yCord, 2)) === 1;
 
-        console.log( (Math.pow(xCord, 2) + Math.pow(yCord, 2)) );
-
-        console.log(adjacent);
-
         return adjacent;
 
     }

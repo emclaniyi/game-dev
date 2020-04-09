@@ -52,6 +52,7 @@ export class Grid {
         cellPicked[0].htmlElement.classList.add(players[0].name);
 
         let playerOneCell = cellPicked[0];
+        
         cellPicked.splice(0, 1);
 
         for (let i = 0; i < cellPicked.length; i++) {
@@ -63,7 +64,25 @@ export class Grid {
                 break;
 
             }
+            console.log(cellPicked[1]);
         }
+
+        // cellPicked[0].weapon = weapons[0];
+        // cellPicked[0].htmlElement.classList.add(weapons[0].name);
+
+        // let weaponOneCell = cellPicked[0];
+        // cellPicked.splice(0, 1);
+
+        // for (let i = 0; i < cellPicked.length; i++) {
+        //     if (!weaponOneCell.isAdjacent(cellPicked[i])) {
+        //         cellPicked[i].player = players[1];
+        //         cellPicked[i].htmlElement.classList.add(weapons[1].name);
+
+        //         cellPicked.splice(i, 1);
+        //         break;
+
+        //     }
+        // }
         
     };
 

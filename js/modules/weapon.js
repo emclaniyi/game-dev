@@ -1,5 +1,6 @@
 export class Weapon {
-    constructor() {
+    constructor(name) {
+        this.name = name;
         this.active = false;
         this.damage = false;
     };

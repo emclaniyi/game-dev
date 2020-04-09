@@ -40,13 +40,13 @@
 	
 }
 
-#player-0 {
+.player-1 {
 	background-image: url("/img/naija.png");
 	background-repeat: no-repeat;
 	
 }
 
-#player-1 {
+.player-2 {
 	background-image: url("/img/hunter.png");
 	background-repeat: no-repeat;
 }

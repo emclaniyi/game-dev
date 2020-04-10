@@ -63,27 +63,18 @@ export class Grid {
                 cellPicked.splice(i, 1);
                 break;
 
-            }
-            console.log(cellPicked[1]);
+            };
+        };
+
+        for (let j = 0; j < cellPicked.length; j++) {
+                cellPicked[j].htmlElement.classList.add(weapons[j].name);
+                cellPicked.splice(j, 1);
+                
         }
-
-        // cellPicked[0].weapon = weapons[0];
-        // cellPicked[0].htmlElement.classList.add(weapons[0].name);
-
-        // let weaponOneCell = cellPicked[0];
-        // cellPicked.splice(0, 1);
-
-        // for (let i = 0; i < cellPicked.length; i++) {
-        //     if (!weaponOneCell.isAdjacent(cellPicked[i])) {
-        //         cellPicked[i].player = players[1];
-        //         cellPicked[i].htmlElement.classList.add(weapons[1].name);
-
-        //         cellPicked.splice(i, 1);
-        //         break;
-
-        //     }
-        // }
         
+        for (let w = 0; w < wallNum; w++) {
+            cellPicked[w].htmlElement.classList.add("wall");
+            }
     };
 
 };

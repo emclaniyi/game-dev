@@ -8,5 +8,9 @@ myGrid.draw();
 let player1  = new Player("player-1");
 let player2  = new Player("player-2");
 
+let weapon1 = new Weapon("weapon-1");
+let weapon2 = new Weapon("weapon-2");
+let weapon3 = new Weapon("weapon-3");
+let weapon4 = new Weapon("weapon-4");
 
-myGrid.placeImg([player1, player2], [1,2,3,4], 3);
+myGrid.placeImg([player1, player2], [weapon1, weapon2, weapon3, weapon4], 3);

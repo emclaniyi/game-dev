@@ -19,22 +19,22 @@
 	outline-style: dotted;
 }
 
-#weapon-0 {
+.weapon-1 {
 	background-image: url("/img/axe.png");
 	background-repeat: no-repeat;
 }
 
-#weapon-1 {
+.weapon-2 {
 	background-image: url("/img/sword.png");
 	background-repeat: no-repeat;
 }
 
-#weapon-2 {
+.weapon-3 {
 	background-image: url("/img/flail.png");
 	background-repeat: no-repeat;
 }
 
-#weapon-3{
+.weapon-4{
 	background-image: url("/img/bow.png");
 	background-repeat: no-repeat;
 	

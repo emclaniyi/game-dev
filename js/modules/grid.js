@@ -7,13 +7,14 @@ export class Grid {
         
     };
     draw() {
-        const container = $("container");
+        const container = $("#container");
         let cells = [];
         
         for (let row = 0; row < this.numRow; row++) {
             for (let col = 0; col < this.numCol; col++){
-                container.append(`<div class="grid"></div>`);
-                let cellDiv = $('.grid');
+                let cellDiv = $(`<div class="grid"></div>`);
+                container.append(cellDiv);
+                
                 
                 cellDiv.width(100/this.numRow + "%");
                 cellDiv.height(100/this.numCol + "%");

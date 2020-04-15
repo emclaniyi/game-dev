@@ -7,18 +7,16 @@ export class Grid {
         
     };
     draw() {
-        const container = document.getElementById("container");
+        const container = $("container");
         let cells = [];
         
         for (let row = 0; row < this.numRow; row++) {
             for (let col = 0; col < this.numCol; col++){
-
-                let cellDiv = document.createElement("div");
-                cellDiv.classList.add("grid");
-
-                container.appendChild(cellDiv);
-                cellDiv.style.width = 100/this.numRow + "%";
-                cellDiv.style.height = 100/this.numCol + "%";
+                container.append(`<div class="grid"></div>`);
+                let cellDiv = $('.grid');
+                
+                cellDiv.width(100/this.numRow + "%");
+                cellDiv.height(100/this.numCol + "%");
 
                 let newCell = new Cell(col, row, cellDiv);
                 cells.push(newCell)
@@ -49,7 +47,7 @@ export class Grid {
         let cellPicked = this.getCells(players.length + weapons.length + wallNum);
 
         cellPicked[0].player = players[0];
-        cellPicked[0].htmlElement.classList.add(players[0].name);
+        cellPicked[0].htmlElement.addClass(players[0].name);
 
         let playerOneCell = cellPicked[0];
         
@@ -58,7 +56,7 @@ export class Grid {
         for (let i = 0; i < cellPicked.length; i++) {
             if (!playerOneCell.isAdjacent(cellPicked[i])) {
                 cellPicked[i].player = players[1];
-                cellPicked[i].htmlElement.classList.add(players[1].name);
+                cellPicked[i].htmlElement.addClass(players[1].name);
 
                 cellPicked.splice(i, 1);
                 break;
@@ -67,13 +65,13 @@ export class Grid {
         };
 
         for (let j = 0; j < cellPicked.length; j++) {
-                cellPicked[j].htmlElement.classList.add(weapons[j].name);
+                cellPicked[j].htmlElement.addClass(weapons[j].name);
                 cellPicked.splice(j, 1);
                 
         }
         
         for (let w = 0; w < wallNum; w++) {
-            cellPicked[w].htmlElement.classList.add("wall");
+            cellPicked[w].htmlElement.addClass("wall");
             }
     };
 

@@ -113,24 +113,24 @@ export class Grid {
         // });
         
 
-        // let directionPiled = [];
-        // totalNumCells[0]
-        // let xValue = totalNumCells[0].x;
-        // let yValue = totalNumCells[0].y + 1;
+        let directionPiled = [];
+        totalNumCells[0]
+        let xValue = totalNumCells[0].x;
+        let yValue = totalNumCells[0].y + 1;
 
-        // const rightDirectionOne = xValue + 1;
-        // const rightDirectionTwo = xValue + 2;
-        // const rightDirectionThree = xValue + 3;
+        const rightDirectionOne = xValue + 1;
+        const rightDirectionTwo = xValue + 2;
+        const rightDirectionThree = xValue + 3;
 
-        // const bottomDirectionOne = yValue;
-        // const bottomDirectionTwo = yValue + 1;
-        // const bottomDirectionThree = yValue + 2;
+        const bottomDirectionOne = yValue;
+        const bottomDirectionTwo = yValue + 1;
+        const bottomDirectionThree = yValue + 2;
 
-        // const firstCellDirRight = [{ xValue, rightDirectionOne }, { xValue, rightDirectionTwo }, { xValue, rightDirectionThree }];
-        // const secCellDirRight = [{ bottomDirectionOne , xValue}, {bottomDirectionTwo, xValue }, {bottomDirectionThree, xValue}]
+        const firstCellDirRight = [{ xValue, rightDirectionOne }, { xValue, rightDirectionTwo }, { xValue, rightDirectionThree }];
+        const secCellDirRight = [{ bottomDirectionOne , xValue}, {bottomDirectionTwo, xValue }, {bottomDirectionThree, xValue}]
 
-        // console.log("right direction", firstCellDirRight);
-        // console.log("bottom direction --", secCellDirRight);
+        console.log("right direction", firstCellDirRight);
+        console.log("bottom direction --", secCellDirRight);
 
        
     };

@@ -71,66 +71,113 @@ export class Grid {
 
         for (let j = 0; j < cellPicked.length; j++) {
             cellPicked[j].htmlElement.addClass(weapons[j].name);
+            cellPicked[j].weapon = weapons[j];
             cellPicked.splice(j, 1);
-
         }
 
         for (let w = 0; w < wallNum; w++) {
             cellPicked[w].htmlElement.addClass("wall");
+            cellPicked[w].wall = true;
         }
-        //console.log(this.elementsInBoard())
     };
+
+
+    exist(){
+        let allCells = this.elementsInBoard();
+        let allCellCord= [];
+        for (let i in allCells){
+            console.log(allCells[i])
+            let me = allCells[i].x
+            let you = allCells[i].y;
+            console.log("all xy---", me, you);
+            // allCellCord.push(me,you)
+            
+        }
+        
+        
+    }
 
     showAvailableCells(cell) {
         let totalNumCells = this.elementsInBoard();
-        console.log(totalNumCells);
+        let cellPlayerPresent = [];
+        totalNumCells.some(cell => {
+            if(cell.player != null){
+                cellPlayerPresent.push(cell);
+            };
+        });
+        console.log(cellPlayerPresent);
+      
+        let xValue = cellPlayerPresent[0].x;
+        let yValue = cellPlayerPresent[0].y + 1;
 
-        let player  = totalNumCells[cell]
+        // const rightDirectionOne = xValue + 1;
+        // const rightDirectionTwo = xValue + 2;
+        // const rightDirectionThree = xValue + 3;
 
-        $("player-1").on(function() {
-            var colorClass = this.className;
-            console.log(colorClass);
-         });
-         
+        // const bottomDirectionOne = yValue;
+        // const bottomDirectionTwo = yValue + 1;
+        // const bottomDirectionThree = yValue + 2;
 
+        let rx = xValue;
+		let by = yValue;
+		const right = 5 - rx;
+		const down = 5 - by;
+		const rightDirection = [];
+		const bottomDirection = [];
+
+		if (right < 3) {
+			for (let i = 0; i < right; i++) {
+				rightDirection.push(rx);
+				rx++;
+			}
+		} else if (right >= 3) {
+			for (let i = 0; i < 3; i++) {
+				rightDirection.push(rx);
+				rx++;
+			}
+		}
+
+		if (down < 3) {
+			for (let i = 0; i < right; i++) {
+				bottomDirection.push(by);
+				by++;
+			}
+		} else if (down >= 3) {
+			for (let i = 0; i < 3; i++) {
+				bottomDirection.push(by);
+				by++;
+			}
+		}
+
+		// const firstCellDirRight = [
+		// 	{xValue, rightDirectionOne},
+		// 	{xValue, rightDirectionTwo},
+		// 	{xValue, rightDirectionThree}
+		// ];
+		const firstCellDirRight = [];
+		const secCellDirRight = [];
+
+		rightDirection.map(rd => {
+			firstCellDirRight.push({xValue, rd});
+		});
+		// const secCellDirRight = [
+		// 	{bottomDirectionOne, xValue},
+		// 	{bottomDirectionTwo, xValue},
+		// 	{bottomDirectionThree, xValue}
+		// ];
+
+		bottomDirection.map(bd => {
+			secCellDirRight.push({bd, xValue});
+        });
         
-        
-        let playerOne = document.getElementsByClassName("player-1");
+        console.log('right direction', firstCellDirRight);
+		console.log('bottom direction --', secCellDirRight);
 
-        console.log("player---", playerOne);
-        let xVal = playerOne.x;
-        console.log("x--", xVal);
+        // const firstCellDirRight = [{ xValue, rightDirectionOne }, { xValue, rightDirectionTwo }, { xValue, rightDirectionThree }];
+        // const secCellDirRight = [{ bottomDirectionOne , xValue}, {bottomDirectionTwo, xValue }, {bottomDirectionThree, xValue}]
 
-        // totalNumCells.forEach((item) => {
-        //     //console.log("item---", typeof item.htmlElement);
-        //     var playersCellInfo = [];
-        //     if (item.htmlElement == "div.grid.wall") {
-        //       playersCellInfo.push(item);
-        //     };
-        //     console.log(playersCellInfo);
-
-
-        // });
-        
-
-        let directionPiled = [];
-        totalNumCells[0]
-        let xValue = totalNumCells[0].x;
-        let yValue = totalNumCells[0].y + 1;
-
-        const rightDirectionOne = xValue + 1;
-        const rightDirectionTwo = xValue + 2;
-        const rightDirectionThree = xValue + 3;
-
-        const bottomDirectionOne = yValue;
-        const bottomDirectionTwo = yValue + 1;
-        const bottomDirectionThree = yValue + 2;
-
-        const firstCellDirRight = [{ xValue, rightDirectionOne }, { xValue, rightDirectionTwo }, { xValue, rightDirectionThree }];
-        const secCellDirRight = [{ bottomDirectionOne , xValue}, {bottomDirectionTwo, xValue }, {bottomDirectionThree, xValue}]
-
-        console.log("right direction", firstCellDirRight);
-        console.log("bottom direction --", secCellDirRight);
+        // console.log("right direction", firstCellDirRight);
+        // console.log("bottom direction --", secCellDirRight);
 
        
     };

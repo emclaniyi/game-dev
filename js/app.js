@@ -15,3 +15,4 @@ let weapon4 = new Weapon("weapon-4");
 
 myGrid.placeImg([player1, player2], [weapon1, weapon2, weapon3, weapon4], 4);
 myGrid.showAvailableCells();
+myGrid.exist()

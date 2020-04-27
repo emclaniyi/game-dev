@@ -1,4 +1,5 @@
 import { Player } from "./player.js";
+import { Grid } from "./grid.js";
 
 
 export class Cell{
@@ -24,8 +25,7 @@ export class Cell{
 
         return adjacent;
 
-    }
-    
+    };
 
 };
 

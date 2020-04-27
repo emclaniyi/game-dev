@@ -5,39 +5,39 @@ export class Weapon {
         this.damage = false;
     };
 
-    weaponInGame(){
-        let weaponArray = [];
+    // weaponInGame(){
+    //     let weaponArray = [];
 
-        let weaponElements = document.querySelectorAll(".weapon");
-        for (var i = 0; i < weaponElements.length; i++) {
-            weaponElements[i].id = 'weapon-' + i;
-            weaponArray.push(weaponElements[i].id);
-        };
-        return weaponArray;
+    //     let weaponElements = document.querySelectorAll(".weapon");
+    //     for (var i = 0; i < weaponElements.length; i++) {
+    //         weaponElements[i].id = 'weapon-' + i;
+    //         weaponArray.push(weaponElements[i].id);
+    //     };
+    //     return weaponArray;
 
-    };
+    // };
 
 
-    isWeaponActive() {
-        let weaponCopy = this.weaponInGame();
+    // isWeaponActive() {
+    //     let weaponCopy = this.weaponInGame();
 
-        for (let weaponId of weaponCopy){
-            let weaponPicked = document.getElementById(weaponId);
-            weaponPicked.addEventListener('click', () => {
-                this.active = true;
-                weaponPicked.style.boxShadow = "0px 10px 50px rgba(255, 0, 0, 1)";
-            });
-        };
+    //     for (let weaponId of weaponCopy){
+    //         let weaponPicked = document.getElementById(weaponId);
+    //         weaponPicked.addEventListener('click', () => {
+    //             this.active = true;
+    //             weaponPicked.style.boxShadow = "0px 10px 50px rgba(255, 0, 0, 1)";
+    //         });
+    //     };
 
-    };
+    // };
 
-    strike() {
+    // strike() {
 
-    };
+    // };
 
-    damage() {
+    // damage() {
 
-    };
+    // };
 
    
-}
+};

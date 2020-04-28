@@ -55,6 +55,7 @@ export class Grid {
         cellPicked[0].htmlElement.addClass(players[0].name);
 
         let playerOneCell = cellPicked[0];
+        
 
         cellPicked.splice(0, 1);
 
@@ -62,10 +63,9 @@ export class Grid {
             if (!playerOneCell.isAdjacent(cellPicked[i])) {
                 cellPicked[i].player = players[1];
                 cellPicked[i].htmlElement.addClass(players[1].name);
-
+                
                 cellPicked.splice(i, 1);
                 break;
-
             };
         };
 
@@ -79,23 +79,47 @@ export class Grid {
             cellPicked[w].htmlElement.addClass("wall");
             cellPicked[w].wall = true;
         }
+      
     };
 
 
     exist(){
         let allCells = this.elementsInBoard();
-        let allCellCord= [];
-        for (let i in allCells){
-            console.log(allCells[i])
-            let me = allCells[i].x
-            let you = allCells[i].y;
-            console.log("all xy---", me, you);
-            // allCellCord.push(me,you)
-            
-        }
+        let playerCells = [];
+       for (let cell of allCells){
+           if(cell.player){
+               
+               playerCells.push(cell);
+           }
+       }
+       console.log(playerCells);
+       for (let i=1; i<playerCells.length+1; i++){
+        let ppl = document.getElementsByClassName(`player-{i}`);
+        console.log(ppl);
+        $(ppl).on('click', function(){
+            $(ppl).css({
+                "boxShadow": "0px 10px 50px rgba(0, 0, 255, 1)"
+            })
+            //(... rest of your JS code)
+        });
+       }
+
+       
+       
+
+
+
+        // for (let i in allCells){
+        //     let me = allCells[i].x
+        //     let you = allCells[i].y;
+        //     let arr = [me,you];
+        //     //console.log("all xy---", arr);
+        // };
         
-        
-    }
+    
+    };
+
+
 
     showAvailableCells(cell) {
         let totalNumCells = this.elementsInBoard();
@@ -105,7 +129,7 @@ export class Grid {
                 cellPlayerPresent.push(cell);
             };
         });
-        console.log(cellPlayerPresent);
+        //console.log(cellPlayerPresent);
       
         let xValue = cellPlayerPresent[0].x;
         let yValue = cellPlayerPresent[0].y + 1;
@@ -170,8 +194,8 @@ export class Grid {
 			secCellDirRight.push({bd, xValue});
         });
         
-        console.log('right direction', firstCellDirRight);
-		console.log('bottom direction --', secCellDirRight);
+        //console.log('right direction', firstCellDirRight);
+		//console.log('bottom direction --', secCellDirRight);
 
         // const firstCellDirRight = [{ xValue, rightDirectionOne }, { xValue, rightDirectionTwo }, { xValue, rightDirectionThree }];
         // const secCellDirRight = [{ bottomDirectionOne , xValue}, {bottomDirectionTwo, xValue }, {bottomDirectionThree, xValue}]

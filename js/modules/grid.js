@@ -42,15 +42,13 @@ export class Grid {
             newBoard.push(boardCopy[seed]);
             boardCopy.splice(seed, 1);
         };
-        // console.log(boardCopy.length)
-        // console.log(this.elementsInBoard().length)
         
         return newBoard;
     };
 
     placeImg(players, weapons, wallNum) {
         let cellPicked = this.getCells(players.length + weapons.length + wallNum);
-
+        console.log(cellPicked);
         cellPicked[0].player = players[0];
         cellPicked[0].htmlElement.addClass(players[0].name);
 
@@ -79,49 +77,42 @@ export class Grid {
             cellPicked[w].htmlElement.addClass("wall");
             cellPicked[w].wall = true;
         }
+        
       
     };
 
-
-    exist(){
-        let allCells = this.elementsInBoard();
-        let playerCells = [];
-       for (let cell of allCells){
-           if(cell.player){
-               
-               playerCells.push(cell);
-           }
-       }
-       console.log(playerCells);
-       for (let i=1; i<playerCells.length+1; i++){
-        let ppl = document.getElementsByClassName(`player-{i}`);
-        console.log(ppl);
-        $(ppl).on('click', function(){
-            $(ppl).css({
-                "boxShadow": "0px 10px 50px rgba(0, 0, 255, 1)"
-            })
-            //(... rest of your JS code)
-        });
-       }
-
-       
-       
-
-
-
-        // for (let i in allCells){
-        //     let me = allCells[i].x
-        //     let you = allCells[i].y;
-        //     let arr = [me,you];
-        //     //console.log("all xy---", arr);
-        // };
-        
-    
+    checkCord(x,y) {
+        return x >= 0 && x < this.numCol && y >= 0 && y < this.numRow;
     };
 
+    getCell(x,y){
+        if (!this.checkCord(x,y)){
+            return null;
+        }
+        return this.cells[y * this.numCol + x];
+    };
 
+    getCellsInDirection(origin, dirx, diry, distance){
+        let result = [];
+        for(let i = 1; i <= distance; i++){
+            const targetX = origin.x + dirx * i;
+            const targetY = origin.y + diry * i;
+            const targetCell = this.getCell(targetX, targetY);
+            if(targetCell != null && targetCell.player == null && !targetCell.wall){
+                result.push(targetCell);
+            } else {
+                break;            }
+        }
+        return result;
 
-    showAvailableCells(cell) {
+    }
+
+    
+
+    
+    
+    showAvailableCells() {
+        let availableCellArray= [];
         let totalNumCells = this.elementsInBoard();
         let cellPlayerPresent = [];
         totalNumCells.some(cell => {
@@ -181,8 +172,8 @@ export class Grid {
 		const firstCellDirRight = [];
 		const secCellDirRight = [];
 
-		rightDirection.map(rd => {
-			firstCellDirRight.push({xValue, rd});
+		rightDirection.map(d => {
+			firstCellDirRight.push({xValue, d});
 		});
 		// const secCellDirRight = [
 		// 	{bottomDirectionOne, xValue},
@@ -190,8 +181,8 @@ export class Grid {
 		// 	{bottomDirectionThree, xValue}
 		// ];
 
-		bottomDirection.map(bd => {
-			secCellDirRight.push({bd, xValue});
+		bottomDirection.map(d => {
+			secCellDirRight.push({d, xValue});
         });
         
         //console.log('right direction', firstCellDirRight);
@@ -203,7 +194,10 @@ export class Grid {
         // console.log("right direction", firstCellDirRight);
         // console.log("bottom direction --", secCellDirRight);
 
-       
+    
+        
+      return availableCellArray.push({firstCellDirRight, secCellDirRight});
+    //pele me I don't understand anything again. lol
     };
 
 };

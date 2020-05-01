@@ -27,5 +27,10 @@ export class Cell{
 
     };
 
+    exist(x,y){
+        
+
+    }
+
 };
 

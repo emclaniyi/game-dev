@@ -2,12 +2,13 @@
 #container {
 	position: relative;
 	border:5px solid #be79df;
-	border-radius: 50px;
+	border-radius: 20px;
 	font-size: 0;
 	margin:auto;
 	height:720px;
 	width:920px;
 	background-color: #ffffff;
+	overflow: hidden;
 }
 
 .grid {
@@ -18,40 +19,39 @@
 	display:inline-block;
 	outline-style: dotted;
 }
-
+.weapon-1, .weapon-2, .weapon-3, .weapon-4, .player-1, .player-2, .grid.wall {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
 .weapon-1 {
 	background-image: url("/img/axe.png");
-	background-repeat: no-repeat;
 }
 
 .weapon-2 {
 	background-image: url("/img/sword.png");
-	background-repeat: no-repeat;
 }
 
 .weapon-3 {
 	background-image: url("/img/flail.png");
-	background-repeat: no-repeat;
 }
 
 .weapon-4{
 	background-image: url("/img/bow.png");
-	background-repeat: no-repeat;
-	
 }
 
 .player-1 {
 	background-image: url("/img/naija.png");
-	background-repeat: no-repeat;
-	
 }
 
 .player-2 {
 	background-image: url("/img/hunter.png");
-	background-repeat: no-repeat;
 }
 
 .grid.wall {
 	background-image: url("/img/wall.png");
-	background-repeat: no-repeat;
+}
+
+.accessible {
+	box-shadow: inset 0px 10px 50px rgba(255, 0, 0, 0.5);
 }

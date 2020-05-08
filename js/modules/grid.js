@@ -1,4 +1,5 @@
 import { Cell } from "./cell.js";
+import { Player } from "./player.js";
 
 export class Grid {
     constructor(numRow, numCol) {
@@ -48,8 +49,10 @@ export class Grid {
 
     placeImg(players, weapons, wallNum) {
         let cellPicked = this.getCells(players.length + weapons.length + wallNum);
-        console.log(cellPicked);
+    
         cellPicked[0].player = players[0];
+        players[0].cell = cellPicked[0];
+        console.log("player-0", players[0]);
         cellPicked[0].htmlElement.addClass(players[0].name);
 
         let playerOneCell = cellPicked[0];
@@ -60,6 +63,7 @@ export class Grid {
         for (let i = 0; i < cellPicked.length; i++) {
             if (!playerOneCell.isAdjacent(cellPicked[i])) {
                 cellPicked[i].player = players[1];
+                players[1].cell = cellPicked[i];
                 cellPicked[i].htmlElement.addClass(players[1].name);
                 
                 cellPicked.splice(i, 1);
@@ -77,7 +81,6 @@ export class Grid {
             cellPicked[w].htmlElement.addClass("wall");
             cellPicked[w].wall = true;
         }
-        
       
     };
 
@@ -92,112 +95,55 @@ export class Grid {
         return this.cells[y * this.numCol + x];
     };
 
-    getCellsInDirection(origin, dirx, diry, distance){
+    // getCellsInDirection(origin, dirx, diry, distance){
+    //     let result = [];
+    //     for(let i = 1; i <= distance; i++){
+    //         const targetX = origin.x + dirx * i;
+    //         const targetY = origin.y + diry * i;
+    //         const targetCell = this.getCell(targetX, targetY);
+    //         if(targetCell != null && targetCell.player == null && !targetCell.wall){
+    //             result.push(targetCell);
+    //         } else {
+    //             break;            }
+    //     };
+    //     return result;
+
+    // }
+    getCellsInDirections(origin, dir, distance) {
         let result = [];
-        for(let i = 1; i <= distance; i++){
-            const targetX = origin.x + dirx * i;
-            const targetY = origin.y + diry * i;
-            const targetCell = this.getCell(targetX, targetY);
-            if(targetCell != null && targetCell.player == null && !targetCell.wall){
-                result.push(targetCell);
-            } else {
-                break;            }
-        }
-        return result;
-
-    }
-
     
-
-    
-    
-    showAvailableCells() {
-        let availableCellArray= [];
-        let totalNumCells = this.elementsInBoard();
-        let cellPlayerPresent = [];
-        totalNumCells.some(cell => {
-            if(cell.player != null){
-                cellPlayerPresent.push(cell);
-            };
-        });
-        //console.log(cellPlayerPresent);
-      
-        let xValue = cellPlayerPresent[0].x;
-        let yValue = cellPlayerPresent[0].y + 1;
-
-        // const rightDirectionOne = xValue + 1;
-        // const rightDirectionTwo = xValue + 2;
-        // const rightDirectionThree = xValue + 3;
-
-        // const bottomDirectionOne = yValue;
-        // const bottomDirectionTwo = yValue + 1;
-        // const bottomDirectionThree = yValue + 2;
-
-        let rx = xValue;
-		let by = yValue;
-		const right = 5 - rx;
-		const down = 5 - by;
-		const rightDirection = [];
-		const bottomDirection = [];
-
-		if (right < 3) {
-			for (let i = 0; i < right; i++) {
-				rightDirection.push(rx);
-				rx++;
-			}
-		} else if (right >= 3) {
-			for (let i = 0; i < 3; i++) {
-				rightDirection.push(rx);
-				rx++;
-			}
-		}
-
-		if (down < 3) {
-			for (let i = 0; i < right; i++) {
-				bottomDirection.push(by);
-				by++;
-			}
-		} else if (down >= 3) {
-			for (let i = 0; i < 3; i++) {
-				bottomDirection.push(by);
-				by++;
-			}
-		}
-
-		// const firstCellDirRight = [
-		// 	{xValue, rightDirectionOne},
-		// 	{xValue, rightDirectionTwo},
-		// 	{xValue, rightDirectionThree}
-		// ];
-		const firstCellDirRight = [];
-		const secCellDirRight = [];
-
-		rightDirection.map(d => {
-			firstCellDirRight.push({xValue, d});
-		});
-		// const secCellDirRight = [
-		// 	{bottomDirectionOne, xValue},
-		// 	{bottomDirectionTwo, xValue},
-		// 	{bottomDirectionThree, xValue}
-		// ];
-
-		bottomDirection.map(d => {
-			secCellDirRight.push({d, xValue});
-        });
+		for (let i = 0; i < dir.length; i++) {
+            
+			for (let j = 1; j <= distance; j++) {
+                
+                const targetX = origin.cell.x + dir[i].x * j;
+				const targetY = origin.cell.y + dir[i].y * j;
+				const targetCell = this.getCell(targetX, targetY);
+				if (targetCell != null && targetCell.player == null && !targetCell.wall) {
+                    result.push(targetCell);
+                    
+                    
+				} else {
+					break;
+                };
+            }
+       }
+       for (let item of result){
+        item.htmlElement.addClass("accessible");
+       }
+       
         
-        //console.log('right direction', firstCellDirRight);
-		//console.log('bottom direction --', secCellDirRight);
-
-        // const firstCellDirRight = [{ xValue, rightDirectionOne }, { xValue, rightDirectionTwo }, { xValue, rightDirectionThree }];
-        // const secCellDirRight = [{ bottomDirectionOne , xValue}, {bottomDirectionTwo, xValue }, {bottomDirectionThree, xValue}]
-
-        // console.log("right direction", firstCellDirRight);
-        // console.log("bottom direction --", secCellDirRight);
-
+	    return result;
+    };
     
-        
-      return availableCellArray.push({firstCellDirRight, secCellDirRight});
-    //pele me I don't understand anything again. lol
+    getCellsAroundPlayer(origin){
+
+        let accessibleCells = this.getCellsInDirection(origin, dir, 3);
+        accessibleCells[0].htmlElement.addClass("accessible");
+        //accessibleCells[1].htmlElement.addClass("accessible");
+        console.log(accessibleCells);
+
     };
 
+    
 };

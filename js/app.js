@@ -13,6 +13,18 @@ let weapon2 = new Weapon("weapon-2");
 let weapon3 = new Weapon("weapon-3");
 let weapon4 = new Weapon("weapon-4");
 
+
 myGrid.placeImg([player1, player2], [weapon1, weapon2, weapon3, weapon4], 4);
-myGrid.getIndex(5,5);
-myGrid.horizontal();
+myGrid.checkCord(6,5);
+myGrid.getCell(5,5);
+
+
+var dir = [
+    {x: 1, y: 0},
+    {x: -1, y: 0},
+    {x: 0, y: -1},
+    {x: 0, y: 1}
+]
+console.log(player1);
+myGrid.getCellsInDirections(player1, dir, 3);
+//myGrid.getCellsAroundPlayer({x:4, y:4});

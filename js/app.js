@@ -19,14 +19,7 @@ myGrid.checkCord(6,5);
 myGrid.getCell(5,5);
 
 
-var dir = [
-    {x: 1, y: 0},
-    {x: -1, y: 0},
-    {x: 0, y: -1},
-    {x: 0, y: 1}
-]
-//console.log(player2);
-myGrid.getCellsInDirections(player1, dir, 3);
-myGrid.movePlayers()
+
+myGrid.movePlayers(player2, player1)
 //console.log(player1);
 //myGrid.getCellsAroundPlayer({x:4, y:4});

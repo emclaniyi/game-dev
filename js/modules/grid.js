@@ -119,23 +119,32 @@ export class Grid {
     };
 
 
-    movePlayers(){
+    movePlayers(player, otherPlayer){
+        var dir = [
+            {x: 1, y: 0},
+            {x: -1, y: 0},
+            {x: 0, y: -1},
+            {x: 0, y: 1}
+        ]
+        let cells = this.getCellsInDirections(player, dir, 3);
+
+        for(let cell of cells){
+            cell.htmlElement.on('click', () => {
+                player.cell.player = null;
+                player.cell.htmlElement.removeClass(player.name);
+                cell.player = player;
+                player.cell = cell;
+                player.cell.htmlElement.addClass(player.name);
+                $(".accessible").off('click');
+                $(".accessible").removeClass("accessible");
+                this.movePlayers(otherPlayer, player);
+            })
+        }
        
- 
-         $(".player-1").on('click', function(){
-             let playerClicked = $(this);
-             playerClicked.active = !playerClicked.active;
-             console.log(playerClicked.active);
-             playerClicked.removeClass("player-1");
-                $(".accessible").each(function(){
-                    $(".accessible").on('click', function(){
-                    let sqClicked = $(this);
-                    sqClicked.removeClass("accessible");
-                    sqClicked.addClass("player-1");
-                    });
-                });
-             });
        
+    }
+    swapWeapons(player, cell){
+        
     }
 
     

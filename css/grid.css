@@ -1,7 +1,7 @@
 
 #container {
 	position: relative;
-	border:5px solid #be79df;
+	border:5px solid #332d6d;
 	border-radius: 20px;
 	font-size: 0;
 	margin:auto;
@@ -15,7 +15,7 @@
 	margin:0;
 	padding:0;
 	border: none;
-	outline:1px solid #be79df;
+	outline:1px solid #332d6d;
 	display:inline-block;
 	outline-style: dotted;
 }
@@ -53,5 +53,8 @@
 }
 
 .accessible {
-	box-shadow: inset 0px 10px 50px rgba(255, 0, 0, 0.5);
+	box-shadow: inset 0px 10px 50px rgba(54, 156, 105, 0.5);
+}
+.selected {
+	box-shadow: inset 0px 10px 50px rgba(54, 156, 105, 0.5);
 }

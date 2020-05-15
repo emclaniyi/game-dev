@@ -52,7 +52,6 @@ export class Grid {
     
         cellPicked[0].player = players[0];
         players[0].cell = cellPicked[0];
-        console.log("player-0", players[0]);
         cellPicked[0].htmlElement.addClass(players[0].name);
 
         let playerOneCell = cellPicked[0];
@@ -95,22 +94,8 @@ export class Grid {
         return this.cells[y * this.numCol + x];
     };
 
-    // getCellsInDirection(origin, dirx, diry, distance){
-    //     let result = [];
-    //     for(let i = 1; i <= distance; i++){
-    //         const targetX = origin.x + dirx * i;
-    //         const targetY = origin.y + diry * i;
-    //         const targetCell = this.getCell(targetX, targetY);
-    //         if(targetCell != null && targetCell.player == null && !targetCell.wall){
-    //             result.push(targetCell);
-    //         } else {
-    //             break;            }
-    //     };
-    //     return result;
-
-    // }
     getCellsInDirections(origin, dir, distance) {
-        let result = [];
+        let acessibleCells = [];
     
 		for (let i = 0; i < dir.length; i++) {
             
@@ -120,30 +105,38 @@ export class Grid {
 				const targetY = origin.cell.y + dir[i].y * j;
 				const targetCell = this.getCell(targetX, targetY);
 				if (targetCell != null && targetCell.player == null && !targetCell.wall) {
-                    result.push(targetCell);
-                    
-                    
+                    acessibleCells.push(targetCell);
 				} else {
 					break;
                 };
             }
        }
-       for (let item of result){
-        item.htmlElement.addClass("accessible");
-       }
+       for (let item of acessibleCells){
+           item.htmlElement.addClass("accessible");
+       };
+        this.acessibleCells = acessibleCells;
+	    return acessibleCells;
+    };
+
+
+    movePlayers(){
        
-        
-	    return result;
-    };
-    
-    getCellsAroundPlayer(origin){
-
-        let accessibleCells = this.getCellsInDirection(origin, dir, 3);
-        accessibleCells[0].htmlElement.addClass("accessible");
-        //accessibleCells[1].htmlElement.addClass("accessible");
-        console.log(accessibleCells);
-
-    };
+ 
+         $(".player-1").on('click', function(){
+             let playerClicked = $(this);
+             playerClicked.active = !playerClicked.active;
+             console.log(playerClicked.active);
+             playerClicked.removeClass("player-1");
+                $(".accessible").each(function(){
+                    $(".accessible").on('click', function(){
+                    let sqClicked = $(this);
+                    sqClicked.removeClass("accessible");
+                    sqClicked.addClass("player-1");
+                    });
+                });
+             });
+       
+    }
 
     
 };

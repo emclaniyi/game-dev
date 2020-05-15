@@ -25,6 +25,8 @@ var dir = [
     {x: 0, y: -1},
     {x: 0, y: 1}
 ]
-console.log(player1);
+//console.log(player2);
 myGrid.getCellsInDirections(player1, dir, 3);
+myGrid.movePlayers()
+//console.log(player1);
 //myGrid.getCellsAroundPlayer({x:4, y:4});

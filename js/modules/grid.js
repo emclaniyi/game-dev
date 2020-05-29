@@ -2,9 +2,10 @@ import { Cell } from "./cell.js";
 import { Player } from "./player.js";
 
 export class Grid {
-    constructor(numRow, numCol) {
+    constructor(numRow, numCol, combatCallback) {
         this.numRow = numRow;
         this.numCol = numCol;
+        this.combatCallback = combatCallback;
 
     };
     draw() {
@@ -137,15 +138,29 @@ export class Grid {
                 player.cell.htmlElement.addClass(player.name);
                 $(".accessible").off('click');
                 $(".accessible").removeClass("accessible");
-                this.movePlayers(otherPlayer, player);
-            })
-        }
-       
+                if(cell.isAdjacent(otherPlayer.cell)){
+                    //combatCallback
+                    this.combatCallback(player, otherPlayer);
+                } else {
+                    this.movePlayers(otherPlayer, player);
+                }
+            });
+            if(cell.weapon){
+                this.swapWeapons(player, cell);
+            };
+        };
        
     }
     swapWeapons(player, cell){
-        
-    }
+        cell.htmlElement.on('click', () => {
+            player.cell.htmlElement.removeClass(cell.weapon.name);
+            let i = player.weapon;
+            player.weapon = cell.weapon;
+            cell.weapon = i;
+            player.cell.htmlElement.addClass(cell.weapon.name);
+            
+        });
+    };
 
     
 };

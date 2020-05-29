@@ -5,8 +5,8 @@
 	border-radius: 20px;
 	font-size: 0;
 	margin:auto;
-	height:720px;
-	width:920px;
+	height:600px;
+	width:720px;
 	background-color: #ffffff;
 	overflow: hidden;
 }
@@ -19,24 +19,27 @@
 	display:inline-block;
 	outline-style: dotted;
 }
-.weapon-1, .weapon-2, .weapon-3, .weapon-4, .player-1, .player-2, .grid.wall {
+.axe, .sword, .flail, .bow, .baton, .player-1, .player-2, .grid.wall {
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
 }
-.weapon-1 {
+.axe {
 	background-image: url("/img/axe.png");
 }
+.baton {
+	background-image: url("/img/baton.png");
+}
 
-.weapon-2 {
+.sword {
 	background-image: url("/img/sword.png");
 }
 
-.weapon-3 {
+.flail {
 	background-image: url("/img/flail.png");
 }
 
-.weapon-4{
+.bow{
 	background-image: url("/img/bow.png");
 }
 
@@ -55,6 +58,43 @@
 .accessible {
 	box-shadow: inset 0px 10px 50px rgba(54, 156, 105, 0.5);
 }
-.selected {
-	box-shadow: inset 0px 10px 50px rgba(54, 156, 105, 0.5);
+
+.weapons li{
+    display: inline-block;
+    padding: 5px; 
+  }
+  .weapons li img{
+    width: 50px;
+    height: 50px;
+  }
+
+.weapons {
+	width: 500px;
+	position: relative;
+    margin-top: 2px;
+    box-shadow: 0px 2px 6px #332d6d;
+    margin-left: 302px;
+    text-align: center;
+    cursor: default;
+	transition: 1s;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: center;
+	align-items: center;
+}
+.weapons:hover{
+    box-shadow: 0px 2px 10px gray;
+    transition: 1s;
+  }
+
+#game-rules {
+	float: right;
+	position: relative;
+
+}
+.attack-weapon-player1 {
+	margin-left:30%; 
+	width: 76px; 
+	height: 76px; 
 }

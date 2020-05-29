@@ -1,13 +1,114 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Combat Board Game</title>
         <link type="text/css" rel="stylesheet" href="css/grid.css"/>
         
     </head>
     <body>
-            <div id="container">
-                
+        <header>
+            <div>
+                <img src="img/logo.png" class="logo"/>
+                <h1 class="game-header"> COMBAT BOARD GAME</h1>
             </div>
+        </header>
+        
+        <!-- weapon details -->
+        <div class="game-details">
+            <button id="new-game">NEW GAME</button>
+            <button id="game-rules">GAME RULES</button>
+            <ul class="weapons">
+                <li>
+                    <div class="name">Axe</div>
+                    <img src="img/axe.png" alt="axe">
+                    <div class="damage">Damage: 30</div>
+                </li>
+                <li>
+                    <div class="name">Bow</div>
+                    <img src="img/bow.png" alt="bow">
+                    <div class="damage">Damage: 20</div>
+                </li>
+                <li>
+                    <div class="name">Flail</div>
+                    <img src="img/flail.png" alt="flail">
+                    <div class="damage">Damage: 40</div>
+                </li>
+                  
+                <li>
+                    <div class="name">Sword</div>
+                    <img src="img/sword.png" alt="sword">
+                    <div class="damage">Damage: 50</div>
+                </li>
+            </ul>
+        </div>
+
+        <!--Player 1 -->
+        <div id="player1" class="player-info">
+            <div class="text">
+                <h2>Player 1</h2>
+            </div>
+            <img class="player-player1" src="img/naija.png" alt="Player-1">
+            <div class="life-points"><strong>Life points: </strong><span class="Player1-life">100</span></div>
+            <img class="attack-weapon-player1" src='img/baton.png' />
+            <div><strong>Attack power: </strong> <span class="attack-power-player1">10</span></div>
+  
+        </div>
+
+
+        <div id="container">
+                
+        </div>
+
+        <div id="player2" class="player-info">
+            <div class="text">
+                <h2>Player 2</h2>
+            </div>
+            <img class="player-player2" src="img/hunter.png" alt="Player-2">
+            <div class="life-points"><strong>Life points: </strong><span class="Player2-life">100</span></div>
+            <img class="attack-weapon-player1" src='img/baton.png' />
+            <div><strong>Attack power: </strong> <span class="attack-power-player2">10</span></div>
+        </div>
+
+
+
+        <!--Modal for combat-->
+        <div id="fight-modal" class="modal-dialogue">
+            <div>
+                <a href="index.html" class="close">close</a>
+                <h2 align="center">Fight!</h2>
+                <hr>
+
+                <div id="player1" class="player-info">
+                    <div class="text">
+                        <h2>Player 1</h2>
+                    </div>
+                    <img class="player-player1" src="img/naija.png" alt="Player-1">
+                    <div class="life-points"><strong>Life points: </strong><span class="Player1-life">100</span></div>
+                    <img class="attack-weapon-player1" src='img/baton.png' />
+                    <div><strong>Attack power: </strong> <span class="attack-power-player1">10</span></div>
+                    <div class="defence"><strong>Defence:</strong> <span id="defence-player1">false</span></div><br>
+                    <button id="Player1-attack" class="button red">Attack</button> <button id="Player1-defend" class="button blue">Defend</button>
+                </div>
+
+                <div id="player2" class="player-info">
+                    <div class="text">
+                        <h2>Player 2</h2>
+                    </div>
+                    <img class="player-player2" src="img/hunter.png" alt="Player-2">
+                    <div class="life-points"><strong>Life points: </strong><span class="Player2-life">100</span></div>
+                    <img class="attack-weapon-player1" src='img/baton.png' />
+                    <div><strong>Attack power: </strong> <span class="attack-power-player2">10</span></div>
+                    <div class="defence"><strong>Defence:</strong> <span id="defence-player2">false</span></div><br>
+                    <button id="Player2-attack" class="button red">Attack</button> <button id="Player2-defend" class="button blue">Defend</button>
+                </div>
+        
+
+            </div>
+        </div>
+
+
+
+
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>     
         <script type="module" src="js/app.js"></script>

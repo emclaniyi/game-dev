@@ -1,8 +1,11 @@
 export class Weapon {
-    constructor(name) {
+    constructor(name, attackPower) {
         this.name = name;
         this.active = false;
         this.damage = false;
+        this.attackPower = attackPower;
+        this.cell = null;
+        this.player = null;
     };
 
     // weaponInGame(){

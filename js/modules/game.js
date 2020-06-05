@@ -29,15 +29,11 @@ export class Game {
     combatTurn(attackingPlayer, otherPlayer){
         console.log("combat start:--");
         $('#game-details').hide();
-        $('#container').hide();
+        $('#boardWrapper').hide();
         $('#fight-modal').show();
 
         //  initialize
-		$('#Player1-attack').on('click', this.fight(attackingPlayer, otherPlayer));
-		$('#Player1-defend').on('click', this.fight(attackingPlayer, otherPlayer));
-		$('#Player2-attack').on('click', this.fight(attackingPlayer, otherPlayer));
-		$('#Player2-defend').on('click', this.fight(attackingPlayer, otherPlayer));
-        
+		this.fight(attackingPlayer, otherPlayer);
     }
     hidePlayer1() {
 		$('#Player1-attack').hide();
@@ -68,6 +64,11 @@ export class Game {
                 $('#Player2-life').text(player2.lifePoints);
                 player2.defend = false;
             };
+            if(player2.lifePoints === 0){
+                vm.hidePlayer1();
+                vm.hidePlayer2();
+                console.log('Player1 Wins')
+            }
         });
         
         $('#Player2-defend').click(function () {
@@ -78,7 +79,6 @@ export class Game {
         
         $('#Player2-attack').click(function () {
             vm.hidePlayer2();
-            player2.defend = false;
             player1.lifePoints = player1.lifePoints - player2.weapon.attackPower;
             console.log(player1.lifePoints);
             $('#Player1-life').text(player1.lifePoints);
@@ -87,6 +87,7 @@ export class Game {
                 $('#Player1-life').text(player1.lifePoints);
                 player1.defend = false;
             };
+            
         });
         
         $('#Player1-defend').click(function () {
@@ -94,5 +95,5 @@ export class Game {
             player1.defend = true;
             $('#defence-player1').text(player1.defend);
 		});
-    }
-}
+    };
+};

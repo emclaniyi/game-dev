@@ -1,102 +1,113 @@
-
 #container {
 	position: relative;
-	border:5px solid #332d6d;
+	border: 5px solid #332d6d;
 	border-radius: 20px;
 	font-size: 0;
-	margin:auto;
-	height:600px;
-	width:720px;
+	margin: auto;
+	height: 600px;
+	width: 720px;
 	background-color: #ffffff;
 	overflow: hidden;
 }
 
 .grid {
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 	border: none;
-	outline:1px solid #332d6d;
-	display:inline-block;
+	outline: 1px solid #332d6d;
+	display: inline-block;
 	outline-style: dotted;
 }
-.axe, .sword, .flail, .bow, .baton, .player-1, .player-2, .grid.wall {
+.axe,
+.sword,
+.flail,
+.bow,
+.baton,
+.player-1,
+.player-2,
+.grid.wall {
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 .axe {
-	background-image: url("/img/axe.png");
+	background-image: url('/img/axe.png');
 }
 .baton {
-	background-image: url("/img/baton.png");
+	background-image: url('/img/baton.png');
 }
 
 .sword {
-	background-image: url("/img/sword.png");
+	background-image: url('/img/sword.png');
 }
 
 .flail {
-	background-image: url("/img/flail.png");
+	background-image: url('/img/flail.png');
 }
 
-.bow{
-	background-image: url("/img/bow.png");
+.bow {
+	background-image: url('/img/bow.png');
 }
 
 .player-1 {
-	background-image: url("/img/naija.png");
+	background-image: url('/img/naija.png');
 }
 
 .player-2 {
-	background-image: url("/img/hunter.png");
+	background-image: url('/img/hunter.png');
 }
 
 .grid.wall {
-	background-image: url("/img/wall.png");
+	background-image: url('/img/wall.png');
 }
 
 .accessible {
 	box-shadow: inset 0px 10px 50px rgba(54, 156, 105, 0.5);
 }
 
-.weapons li{
-    display: inline-block;
-    padding: 5px; 
-  }
-  .weapons li img{
-    width: 50px;
-    height: 50px;
-  }
+.weapons li {
+	display: inline-block;
+	padding: 5px;
+}
+.weapons li img {
+	width: 50px;
+	height: 50px;
+}
 
 .weapons {
 	width: 500px;
 	position: relative;
-    margin-top: 2px;
-    box-shadow: 0px 2px 6px #332d6d;
-    margin-left: 302px;
-    text-align: center;
-    cursor: default;
+	margin-top: 2px;
+	box-shadow: 0px 2px 6px #332d6d;
+	margin-left: 302px;
+	text-align: center;
+	cursor: default;
 	transition: 1s;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-    justify-content: center;
+	justify-content: center;
 	align-items: center;
 }
-.weapons:hover{
-    box-shadow: 0px 2px 10px gray;
-    transition: 1s;
-  }
+.weapons:hover {
+	box-shadow: 0px 2px 10px gray;
+	transition: 1s;
+}
+
+#boardWrapper {
+	display: grid;
+	column-gap: 10px;
+	grid-template-columns: 10% repeat(1, 1fr) 10%;
+}
 
 #game-rules {
 	float: right;
 	position: relative;
-
 }
 .attack-weapon-player1 {
-	margin-left:30%; 
-	width: 76px; 
-	height: 76px; 
+	margin-left: 30%;
+	width: 76px;
+	height: 76px;
 }
 
 #attackWrapper {

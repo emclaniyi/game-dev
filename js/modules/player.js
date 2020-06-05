@@ -5,7 +5,7 @@ export class Player {
         this.cell = null;
         this.weapon = weapon;
         this.lifePoints = 100;
-        this.playerDefend = false;
+        this.defend = false;
         
     }
     

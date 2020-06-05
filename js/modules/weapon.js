@@ -3,6 +3,7 @@ export class Weapon {
         this.name = name;
         this.active = false;
         this.damage = false;
+        this.defend = false;
         this.attackPower = attackPower;
         this.cell = null;
         this.player = null;

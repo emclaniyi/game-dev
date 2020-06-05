@@ -98,3 +98,10 @@
 	width: 76px; 
 	height: 76px; 
 }
+
+#attackWrapper {
+	display: flex;
+	/* flex-direction: column; */
+	align-items: center;
+	justify-content: space-around;
+}

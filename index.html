@@ -14,7 +14,7 @@
         </header>
         
         <!-- weapon details -->
-        <div class="game-details">
+        <div id="game-details">
             <button id="new-game">NEW GAME</button>
             <button id="game-rules">GAME RULES</button>
             <ul class="weapons">
@@ -43,66 +43,70 @@
         </div>
 
         <!--Player 1 -->
-        <div id="player1" class="player-info">
-            <div class="text">
-                <h2>Player 1</h2>
+        <div>
+            <div id="player1" class="player-info">
+                <div class="text">
+                    <h2>Player 1</h2>
+                </div>
+                <img class="player-player1" src="img/naija.png" alt="Player-1">
+                <div class="life-points"><strong>Life points: </strong><span class="Player1-life">100</span></div>
+                <img class="attack-weapon-player1" src='img/baton.png' />
+                <div><strong>Attack power: </strong> <span class="attack-power-player1">10</span></div>
+    
             </div>
-            <img class="player-player1" src="img/naija.png" alt="Player-1">
-            <div class="life-points"><strong>Life points: </strong><span class="Player1-life">100</span></div>
-            <img class="attack-weapon-player1" src='img/baton.png' />
-            <div><strong>Attack power: </strong> <span class="attack-power-player1">10</span></div>
-  
-        </div>
 
 
-        <div id="container">
-                
-        </div>
-
-        <div id="player2" class="player-info">
-            <div class="text">
-                <h2>Player 2</h2>
+            <div id="container">
+                    
             </div>
-            <img class="player-player2" src="img/hunter.png" alt="Player-2">
-            <div class="life-points"><strong>Life points: </strong><span class="Player2-life">100</span></div>
-            <img class="attack-weapon-player1" src='img/baton.png' />
-            <div><strong>Attack power: </strong> <span class="attack-power-player2">10</span></div>
+
+            <div id="player2" class="player-info">
+                <div class="text">
+                    <h2>Player 2</h2>
+                </div>
+                <img class="player-player2" src="img/hunter.png" alt="Player-2">
+                <div class="life-points"><strong>Life points: </strong><span class="Player2-life">100</span></div>
+                <img class="attack-weapon-player1" src='img/baton.png' />
+                <div><strong>Attack power: </strong> <span class="attack-power-player2">10</span></div>
+            </div>
         </div>
 
 
 
         <!--Modal for combat-->
-        <div id="fight-modal" class="modal-dialogue">
-            <div>
-                <a href="index.html" class="close">close</a>
-                <h2 align="center">Fight!</h2>
-                <hr>
+        <div id = attackWrapper>
+            <div id="fight-modal" class="modal-dialogue">
+                <div>
+                    <a href="index.html" class="close">close</a>
+                    <h2 align="center">Fight!</h2>
+                    <hr>
 
-                <div id="player1" class="player-info">
-                    <div class="text">
-                        <h2>Player 1</h2>
+                    <div id="player1" class="player-info">
+                        <div class="text">
+                            <h2>Player 1</h2>
+                        </div>
+                        <img class="player-player1" src="img/naija.png" alt="Player-1">
+                        <div class="life-points"><strong>Life points: </strong><span id="Player1-life">100</span></div>
+                        <img class="attack-weapon-player1" src='img/baton.png' />
+                        <div><strong>Attack power: </strong> <span class="attack-power-player1">10</span></div>
+                        <div class="defence"><strong>Defence:</strong> <span id="defence-player1">false</span></div><br>
+                        <button id="Player1-attack" class="button red">Attack</button> <button id="Player1-defend" class="button blue">Defend</button>
                     </div>
-                    <img class="player-player1" src="img/naija.png" alt="Player-1">
-                    <div class="life-points"><strong>Life points: </strong><span class="Player1-life">100</span></div>
-                    <img class="attack-weapon-player1" src='img/baton.png' />
-                    <div><strong>Attack power: </strong> <span class="attack-power-player1">10</span></div>
-                    <div class="defence"><strong>Defence:</strong> <span id="defence-player1">false</span></div><br>
-                    <button id="Player1-attack" class="button red">Attack</button> <button id="Player1-defend" class="button blue">Defend</button>
-                </div>
 
-                <div id="player2" class="player-info">
-                    <div class="text">
-                        <h2>Player 2</h2>
+                    <div id="player2" class="player-info">
+                        <div class="text">
+                            <h2>Player 2</h2>
+                        </div>
+                        <img class="player-player2" src="img/hunter.png" alt="Player-2">
+                        <div class="life-points"><strong>Life points: </strong><span id="Player2-life">100</span></div>
+                        <img class="attack-weapon-player1" src='img/baton.png' />
+                        <div><strong>Attack power: </strong> <span class="attack-power-player2">10</span></div>
+                        <div class="defence"><strong>Defence:</strong> <span id="defence-player2">false</span></div><br>
+                        <button id="Player2-attack" class="button red">Attack</button> <button id="Player2-defend" class="button blue">Defend</button>
                     </div>
-                    <img class="player-player2" src="img/hunter.png" alt="Player-2">
-                    <div class="life-points"><strong>Life points: </strong><span class="Player2-life">100</span></div>
-                    <img class="attack-weapon-player1" src='img/baton.png' />
-                    <div><strong>Attack power: </strong> <span class="attack-power-player2">10</span></div>
-                    <div class="defence"><strong>Defence:</strong> <span id="defence-player2">false</span></div><br>
-                    <button id="Player2-attack" class="button red">Attack</button> <button id="Player2-defend" class="button blue">Defend</button>
-                </div>
-        
+            
 
+                </div>
             </div>
         </div>
 

@@ -23,8 +23,8 @@
 .flail,
 .bow,
 .baton,
-.player-1,
-.player-2,
+.Player1,
+.Player2,
 .grid.wall {
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -49,11 +49,11 @@
 	background-image: url('/img/bow.png');
 }
 
-.player-1 {
+.Player1 {
 	background-image: url('/img/naija.png');
 }
 
-.player-2 {
+.Player2 {
 	background-image: url('/img/hunter.png');
 }
 

@@ -91,6 +91,8 @@ export class Game {
             vm.hidePlayer1();
             player1.defend = true;
             $('#defence-player1').text(player1.defend);
-		});
+        });
+        
+        //nEW LAPTOP
     };
 };

@@ -92,7 +92,5 @@ export class Game {
             player1.defend = true;
             $('#defence-player1').text(player1.defend);
         });
-        
-        //nEW LAPTOP
     };
 };

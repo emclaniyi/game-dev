@@ -158,6 +158,14 @@ export class Grid {
             player.weapon = cell.weapon;
             cell.weapon = i;
             player.cell.htmlElement.addClass(cell.weapon.name);
+
+            if (player.name == "Player1") {
+                $(".attack-power-player1").text(cell.weapon.attackPower);
+                $(".attack-weapon-player1").css('background-image', "url(" +'/img/' + cell.weapon.name + '.png' + ")");
+            } else if (player.name == "Player2") {
+                $(".attack-power-player2").text(cell.weapon.attackPower);
+                $(".attack-weapon-player2").css('background-image', 'url(' + cell.weapon.name + ')');
+            }
             
         });
     };

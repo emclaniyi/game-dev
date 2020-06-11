@@ -1,174 +1,179 @@
-import { Cell } from "./cell.js";
-import { Player } from "./player.js";
+import { Cell } from './cell.js';
+import { Player } from './player.js';
 
 export class Grid {
-    constructor(numRow, numCol, combatCallback) {
-        this.numRow = numRow;
-        this.numCol = numCol;
-        this.combatCallback = combatCallback;
+	constructor(numRow, numCol, combatCallback) {
+		this.numRow = numRow;
+		this.numCol = numCol;
+		this.combatCallback = combatCallback;
+	}
+	draw() {
+		const container = $('#container');
+		let cells = [];
 
-    };
-    draw() {
-        const container = $("#container");
-        let cells = [];
+		for (let row = 0; row < this.numRow; row++) {
+			for (let col = 0; col < this.numCol; col++) {
+				let cellDiv = $(`<div class="grid"></div>`);
+				container.append(cellDiv);
 
-        for (let row = 0; row < this.numRow; row++) {
-            for (let col = 0; col < this.numCol; col++) {
-                let cellDiv = $(`<div class="grid"></div>`);
-                container.append(cellDiv);
+				cellDiv.width(100 / this.numRow + '%');
+				cellDiv.height(100 / this.numCol + '%');
 
+				let newCell = new Cell(col, row, cellDiv);
+				cells.push(newCell);
+			}
+		}
 
-                cellDiv.width(100 / this.numRow + "%");
-                cellDiv.height(100 / this.numCol + "%");
+		this.cells = cells;
+		return container;
+	}
 
-                let newCell = new Cell(col, row, cellDiv);
-                cells.push(newCell)
-            };
-        };
+	elementsInBoard() {
+		let board = this.cells.slice();
+		return board;
+	}
 
-        this.cells = cells;
-        return container;
-    };
+	getCells(numOfCells) {
+		let boardCopy = this.elementsInBoard();
+		let newBoard = [];
 
-    elementsInBoard() {
-        let board = this.cells.slice();
-        return board;
-    };
+		for (let i = 0; i < numOfCells; i++) {
+			let seed = Math.floor(Math.random() * boardCopy.length);
+			newBoard.push(boardCopy[seed]);
+			boardCopy.splice(seed, 1);
+		}
 
-    getCells(numOfCells) {
-        let boardCopy = this.elementsInBoard();
-        let newBoard = [];
+		return newBoard;
+	}
 
-        for (let i = 0; i < numOfCells; i++) {
-            let seed = Math.floor(Math.random() * boardCopy.length);
-            newBoard.push(boardCopy[seed]);
-            boardCopy.splice(seed, 1);
-        };
-        
-        return newBoard;
-    };
+	placeImg(players, weapons, wallNum) {
+		let cellPicked = this.getCells(players.length + weapons.length + wallNum);
 
-    placeImg(players, weapons, wallNum) {
-        let cellPicked = this.getCells(players.length + weapons.length + wallNum);
-    
-        cellPicked[0].player = players[0];
-        players[0].cell = cellPicked[0];
-        cellPicked[0].htmlElement.addClass(players[0].name);
+		cellPicked[0].player = players[0];
+		players[0].cell = cellPicked[0];
+		cellPicked[0].htmlElement.addClass(players[0].name);
 
-        let playerOneCell = cellPicked[0];
-        
+		let playerOneCell = cellPicked[0];
 
-        cellPicked.splice(0, 1);
+		cellPicked.splice(0, 1);
 
-        for (let i = 0; i < cellPicked.length; i++) {
-            if (!playerOneCell.isAdjacent(cellPicked[i])) {
-                cellPicked[i].player = players[1];
-                players[1].cell = cellPicked[i];
-                cellPicked[i].htmlElement.addClass(players[1].name);
-                
-                cellPicked.splice(i, 1);
-                break;
-            };
-        };
+		for (let i = 0; i < cellPicked.length; i++) {
+			if (!playerOneCell.isAdjacent(cellPicked[i])) {
+				cellPicked[i].player = players[1];
+				players[1].cell = cellPicked[i];
+				cellPicked[i].htmlElement.addClass(players[1].name);
 
-        for (let j = 0; j < cellPicked.length; j++) {
-            cellPicked[j].htmlElement.addClass(weapons[j].name);
-            cellPicked[j].weapon = weapons[j];
-            cellPicked.splice(j, 1);
-        }
+				cellPicked.splice(i, 1);
+				break;
+			}
+		}
 
-        for (let w = 0; w < wallNum; w++) {
-            cellPicked[w].htmlElement.addClass("wall");
-            cellPicked[w].wall = true;
-        }
-      
-    };
+		for (let j = 0; j < cellPicked.length; j++) {
+			cellPicked[j].htmlElement.addClass(weapons[j].name);
+			cellPicked[j].weapon = weapons[j];
+			cellPicked.splice(j, 1);
+		}
 
-    checkCord(x,y) {
-        return x >= 0 && x < this.numCol && y >= 0 && y < this.numRow;
-    };
+		for (let w = 0; w < wallNum; w++) {
+			cellPicked[w].htmlElement.addClass('wall');
+			cellPicked[w].wall = true;
+		}
+	}
 
-    getCell(x,y){
-        if (!this.checkCord(x,y)){
-            return null;
-        }
-        return this.cells[y * this.numCol + x];
-    };
+	checkCord(x, y) {
+		return x >= 0 && x < this.numCol && y >= 0 && y < this.numRow;
+	}
 
-    getCellsInDirections(origin, dir, distance) {
-        let acessibleCells = [];
-    
+	getCell(x, y) {
+		if (!this.checkCord(x, y)) {
+			return null;
+		}
+		return this.cells[y * this.numCol + x];
+	}
+
+	getCellsInDirections(origin, dir, distance) {
+		let acessibleCells = [];
+
 		for (let i = 0; i < dir.length; i++) {
-            
 			for (let j = 1; j <= distance; j++) {
-                
-                const targetX = origin.cell.x + dir[i].x * j;
+				const targetX = origin.cell.x + dir[i].x * j;
 				const targetY = origin.cell.y + dir[i].y * j;
 				const targetCell = this.getCell(targetX, targetY);
 				if (targetCell != null && targetCell.player == null && !targetCell.wall) {
-                    acessibleCells.push(targetCell);
+					acessibleCells.push(targetCell);
 				} else {
 					break;
-                };
-            }
-       }
-       for (let item of acessibleCells){
-           item.htmlElement.addClass("accessible");
-       };
-        this.acessibleCells = acessibleCells;
-	    return acessibleCells;
-    };
+				}
+			}
+		}
+		for (let item of acessibleCells) {
+			item.htmlElement.addClass('accessible');
+		}
+		this.acessibleCells = acessibleCells;
+		return acessibleCells;
+	}
 
+	movePlayers(player, otherPlayer) {
+		var dir = [
+			{ x: 1, y: 0 },
+			{ x: -1, y: 0 },
+			{ x: 0, y: -1 },
+			{ x: 0, y: 1 }
+		];
+		let cells = this.getCellsInDirections(player, dir, 3);
 
-    movePlayers(player, otherPlayer){
-        var dir = [
-            {x: 1, y: 0},
-            {x: -1, y: 0},
-            {x: 0, y: -1},
-            {x: 0, y: 1}
-        ]
-        let cells = this.getCellsInDirections(player, dir, 3);
+		for (let cell of cells) {
+			cell.htmlElement.on('click', () => {
+				player.cell.player = null;
+				player.cell.htmlElement.removeClass(player.name);
+				cell.player = player;
+				player.cell = cell;
+				player.cell.htmlElement.addClass(player.name);
+				$('.accessible').off('click');
+				$('.accessible').removeClass('accessible');
+				if (cell.isAdjacent(otherPlayer.cell)) {
+					//combatCallback
+					this.combatCallback(player, otherPlayer);
+				} else {
+					this.movePlayers(otherPlayer, player);
+				}
+			});
+			if (cell.weapon) {
+				this.swapWeapons(player, cell);
+			}
+		}
+	}
+	swapWeapons(player, cell) {
+		cell.htmlElement.on('click', () => {
+			player.cell.htmlElement.removeClass(cell.weapon.name);
+			let i = player.weapon;
+			player.weapon = cell.weapon;
+			cell.weapon = i;
+			player.cell.htmlElement.addClass(cell.weapon.name);
 
-        for(let cell of cells){
-            cell.htmlElement.on('click', () => {
-                player.cell.player = null;
-                player.cell.htmlElement.removeClass(player.name);
-                cell.player = player;
-                player.cell = cell;
-                player.cell.htmlElement.addClass(player.name);
-                $(".accessible").off('click');
-                $(".accessible").removeClass("accessible");
-                if(cell.isAdjacent(otherPlayer.cell)){
-                    //combatCallback
-                    this.combatCallback(player, otherPlayer);
-                } else {
-                    this.movePlayers(otherPlayer, player);
-                }
-            });
-            if(cell.weapon){
-                this.swapWeapons(player, cell);
-            };
-        };
-       
-    }
-    swapWeapons(player, cell){
-        cell.htmlElement.on('click', () => {
-            player.cell.htmlElement.removeClass(cell.weapon.name);
-            let i = player.weapon;
-            player.weapon = cell.weapon;
-            cell.weapon = i;
-            player.cell.htmlElement.addClass(cell.weapon.name);
+			if (player.name == 'Player1') {
+				$('#player1-weapon-image').attr('src', `img/${player.weapon.name}.png`);
+				$('#1-attack-text').text(`${player.weapon.attackPower}`);
+			} else if (player.name == 'Player2') {
+				$('#player2-weapon-image').attr('src', `img/${player.weapon.name}.png`);
+				$('#2-attack-text').text(`${player.weapon.attackPower}`);
+			}
 
-            if (player.name == "Player1") {
-                $(".attack-power-player1").text(cell.weapon.attackPower);
-                $(".attack-weapon-player1").css('background-image', "url(" +'/img/' + cell.weapon.name + '.png' + ")");
-            } else if (player.name == "Player2") {
-                $(".attack-power-player2").text(cell.weapon.attackPower);
-                $(".attack-weapon-player2").css('background-image', 'url(' + cell.weapon.name + ')');
-            }
-            
-        });
-    };
+			// player.weapon = cell.weapon.name;
 
-    
-};
+			// if (player.name == 'Player1') {
+			// 	$('.attack-power-player1').text(cell.weapon.attackPower);
+			// 	$('.attack-weapon-player1').css(
+			// 		'background-image',
+			// 		'url(' + '/img/' + cell.weapon.name + '.png' + ')'
+			// 	);
+			// } else if (player.name == 'Player2') {
+			// 	$('.attack-power-player2').text(cell.weapon.attackPower);
+			// 	$('.attack-weapon-player2').css(
+			// 		'background-image',
+			// 		'url(' + cell.weapon.name + ')'
+			// 	);
+			// }
+		});
+	}
+}

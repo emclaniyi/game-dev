@@ -1,23 +1,89 @@
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 #container {
 	position: relative;
 	border: 5px solid #332d6d;
 	border-radius: 20px;
 	font-size: 0;
 	margin: auto;
-	height: 600px;
-	width: 720px;
-	background-color: #ffffff;
+	height: 500px;
+	width: 500px;
+	background-color: #333;
 	overflow: hidden;
 }
 
+#boardWrapper {
+	display: grid;
+	column-gap: 10px;
+	grid-template-columns: 25% repeat(1, 1fr) 25%;
+}
+
 .grid {
+	background-color: #fff;
+	z-index: 10;
 	margin: 0;
 	padding: 0;
-	border: none;
+	/* border: none; */
 	outline: 1px solid #332d6d;
 	display: inline-block;
-	outline-style: dotted;
+	border-radius: 10px;
+	transition: 0.4s cubic-bezier(0.3, 0.3, 0.4, 1);
 }
+
+#player1,
+#player2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#player1 > div,
+#player2 > div {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 300px;
+	height: 300px;
+	border: 2px solid #332d6d;
+	border-radius: 10px;
+	margin: 0;
+	box-shadow: 4px 6px 6px #333;
+}
+
+.player-image {
+	height: 150px;
+}
+
+.playerCard {
+	display: flex;
+	justify-content: space-between;
+	width: 250px;
+}
+
+.card-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.card-details2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+#player1-weapon-image,
+#player2-weapon-image {
+	height: 100px;
+}
+
 .axe,
 .sword,
 .flail,
@@ -65,6 +131,10 @@
 	box-shadow: inset 0px 10px 50px rgba(54, 156, 105, 0.5);
 }
 
+.accessible:hover {
+	box-shadow: inset 0px 10px 50px rgba(54, 156, 105, 1);
+}
+
 .weapons li {
 	display: inline-block;
 	padding: 5px;
@@ -94,21 +164,15 @@
 	transition: 1s;
 }
 
-#boardWrapper {
-	display: grid;
-	column-gap: 10px;
-	grid-template-columns: 10% repeat(1, 1fr) 10%;
-}
-
 #game-rules {
 	float: right;
 	position: relative;
 }
-.attack-weapon-player1 {
+/* .attack-weapon-player1 {
 	margin-left: 30%;
 	width: 76px;
 	height: 76px;
-}
+} */
 
 #attackWrapper {
 	display: flex;

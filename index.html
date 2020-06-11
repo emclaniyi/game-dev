@@ -44,32 +44,48 @@
 		<!--Player 1 -->
 		<div id="boardWrapper">
 			<div id="player1" class="player-info">
-				<div class="text">
-					<h2>Player 1</h2>
-				</div>
-				<img class="player-player1" src="img/naija.png" alt="Player-1" />
-				<div class="life-points">
-					<strong>Life points: </strong><span class="Player1-life">100</span>
-				</div>
-				<img class="attack-weapon-player1" src="img/baton.png" />
 				<div>
-					<strong>Attack power: </strong> <span class="attack-power-player1">10</span>
+					<div class="text">
+						<h2>Player 1</h2>
+					</div>
+					<div class="playerCard">
+						<div class="card-details">
+							<img class="player-player1 player-image" src="img/naija.png" alt="Player-1" />
+							<div class="life-points">
+								<strong>Life points: </strong><span class="Player1-life">100</span>
+							</div>
+						</div>
+						<div class="card-details2">
+							<img id="player1-weapon-image" class="attack-weapon-player1" src="img/baton.png" />
+							<div>
+								<strong>Attack power: </strong> <span id="1-attack-text" class="attack-power-player1">10</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
 			<div id="container"></div>
 
 			<div id="player2" class="player-info">
-				<div class="text">
-					<h2>Player 2</h2>
-				</div>
-				<img class="player-player2" src="img/hunter.png" alt="Player-2" />
-				<div class="life-points">
-					<strong>Life points: </strong><span class="Player2-life">100</span>
-				</div>
-				<img class="attack-weapon-player1" src="img/baton.png" />
 				<div>
-					<strong>Attack power: </strong> <span class="attack-power-player2">10</span>
+					<div class="text">
+						<h2>Player 2</h2>
+					</div>
+					<div class="playerCard">
+						<div class="card-details">
+							<img class="player-player2 player-image" src="img/hunter.png" alt="Player-2" />
+							<div class="life-points">
+								<strong>Life points: </strong><span class="Player2-life">100</span>
+							</div>
+						</div>
+						<div class="card-details2">
+							<img id="player2-weapon-image" class="attack-weapon-player1" src="img/baton.png" />
+							<div>
+								<strong>Attack power: </strong> <span id="2-attack-text" class="attack-power-player2">10</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -90,10 +106,10 @@
 						<div class="life-points">
 							<strong>Life points: </strong><span id="Player1-life">100</span>
 						</div>
-						<img class="attack-weapon-player1" src="img/baton.png" />
+						<img id="fight-player1-weapon-image" class="attack-weapon-player1" src="img/baton.png" />
 						<div>
 							<strong>Attack power: </strong>
-							<span class="attack-power-player1">10</span>
+							<span id="1-fight-text" class="attack-power-player1">10</span>
 						</div>
 						<div class="defence">
 							<strong>Defence:</strong> <span id="defence-player1">false</span>
@@ -111,10 +127,10 @@
 						<div class="life-points">
 							<strong>Life points: </strong><span id="Player2-life">100</span>
 						</div>
-						<img class="attack-weapon-player1" src="img/baton.png" />
+						<img id="fight-player2-weapon-image" class="attack-weapon-player1" src="img/baton.png" />
 						<div>
 							<strong>Attack power: </strong>
-							<span class="attack-power-player2">10</span>
+							<span id="2-fight-text" class="attack-power-player2">10</span>
 						</div>
 						<div class="defence">
 							<strong>Defence:</strong> <span id="defence-player2">false</span>

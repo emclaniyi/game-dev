@@ -128,6 +128,9 @@ export class Grid {
 				player.cell.htmlElement.removeClass(player.name);
 				cell.player = player;
 				player.cell = cell;
+				if (cell.weapon) {
+					this.swapWeapons(player, cell);
+				}
 				player.cell.htmlElement.addClass(player.name);
 				$('.accessible').off('click');
 				$('.accessible').removeClass('accessible');
@@ -138,13 +141,11 @@ export class Grid {
 					this.movePlayers(otherPlayer, player);
 				}
 			});
-			if (cell.weapon) {
-				this.swapWeapons(player, cell);
-			};
+			
 		};
 	};
 	swapWeapons(player, cell) {
-		cell.htmlElement.on('click', () => {
+		
 			player.cell.htmlElement.removeClass(cell.weapon.name);
 			let i = player.weapon;
 			player.weapon = cell.weapon;
@@ -158,6 +159,5 @@ export class Grid {
 				$('#player2-weapon-image').attr('src', `img/${player.weapon.name}.png`);
 				$('#2-attack-text').text(`${player.weapon.attackPower}`);
 			};
-		});
 	}
 }

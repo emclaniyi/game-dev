@@ -190,3 +190,8 @@ header > div > img {
 	align-items: center;
 	justify-content: space-around;
 }
+
+.player-avatar {
+	width: 500px;
+	height: 500px;
+}

@@ -5,41 +5,40 @@
 		<link type="text/css" rel="stylesheet" href="css/grid.css" />
 	</head>
 	<body>
-		<header>
+		<header  id="game-details">
 			<div>
 				<img src="img/logo.png" class="logo" />
-				<h1 class="game-header">COMBAT BOARD GAME</h1>
+				<h3 class="game-header">COMBAT BOARD GAME</h3>
+			</div>
+			<!-- weapon details -->
+			<div>
+				<ul class="weapons">
+					<li>
+						<div class="name">Axe</div>
+						<img src="img/axe.png" alt="axe" />
+						<div class="damage">Damage: 30</div>
+					</li>
+					<li>
+						<div class="name">Bow</div>
+						<img src="img/bow.png" alt="bow" />
+						<div class="damage">Damage: 20</div>
+					</li>
+					<li>
+						<div class="name">Flail</div>
+						<img src="img/flail.png" alt="flail" />
+						<div class="damage">Damage: 40</div>
+					</li>
+			
+					<li>
+						<div class="name">Sword</div>
+						<img src="img/sword.png" alt="sword" />
+						<div class="damage">Damage: 50</div>
+					</li>
+				</ul>
 			</div>
 		</header>
 
-		<!-- weapon details -->
-		<div id="game-details">
-			<button id="new-game">NEW GAME</button>
-			<button id="game-rules">GAME RULES</button>
-			<ul class="weapons">
-				<li>
-					<div class="name">Axe</div>
-					<img src="img/axe.png" alt="axe" />
-					<div class="damage">Damage: 30</div>
-				</li>
-				<li>
-					<div class="name">Bow</div>
-					<img src="img/bow.png" alt="bow" />
-					<div class="damage">Damage: 20</div>
-				</li>
-				<li>
-					<div class="name">Flail</div>
-					<img src="img/flail.png" alt="flail" />
-					<div class="damage">Damage: 40</div>
-				</li>
-
-				<li>
-					<div class="name">Sword</div>
-					<img src="img/sword.png" alt="sword" />
-					<div class="damage">Damage: 50</div>
-				</li>
-			</ul>
-		</div>
+		
 
 		<!--Player 1 -->
 		<div id="boardWrapper">
@@ -90,10 +89,11 @@
 			</div>
 		</div>
 
+		
+
 		<!--Modal for combat-->
 		<div id="fight-modal" class="modal-dialogue">
 			<div>
-				<a href="index.html" class="close">close</a>
 				<h2 align="center">Fight!</h2>
 				<hr />
 
@@ -145,7 +145,6 @@
 		<!--modals for gameover-->
 		<div align="center" id="gameover-modal" class="modalDialog">
 			<div>
-			  <a href="#close" title="Close" class="close">X</a>
 			  <h2>Game Over!</h2>
 			  <hr>
 			  <p>

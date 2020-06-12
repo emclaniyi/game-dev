@@ -140,9 +140,9 @@ export class Grid {
 			});
 			if (cell.weapon) {
 				this.swapWeapons(player, cell);
-			}
-		}
-	}
+			};
+		};
+	};
 	swapWeapons(player, cell) {
 		cell.htmlElement.on('click', () => {
 			player.cell.htmlElement.removeClass(cell.weapon.name);
@@ -157,23 +157,7 @@ export class Grid {
 			} else if (player.name == 'Player2') {
 				$('#player2-weapon-image').attr('src', `img/${player.weapon.name}.png`);
 				$('#2-attack-text').text(`${player.weapon.attackPower}`);
-			}
-
-			// player.weapon = cell.weapon.name;
-
-			// if (player.name == 'Player1') {
-			// 	$('.attack-power-player1').text(cell.weapon.attackPower);
-			// 	$('.attack-weapon-player1').css(
-			// 		'background-image',
-			// 		'url(' + '/img/' + cell.weapon.name + '.png' + ')'
-			// 	);
-			// } else if (player.name == 'Player2') {
-			// 	$('.attack-power-player2').text(cell.weapon.attackPower);
-			// 	$('.attack-weapon-player2').css(
-			// 		'background-image',
-			// 		'url(' + cell.weapon.name + ')'
-			// 	);
-			// }
+			};
 		});
 	}
 }

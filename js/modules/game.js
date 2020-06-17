@@ -75,7 +75,7 @@ export class Game {
 				$('#winner-avatar').append(
 					`<div class="${player1.name} player-avatar" ></div>`
 				);
-				$('#winner').text(player1.name + "Wins");
+				$('#winner').text(player1.name + " Wins");
 				window.location.href = '#gameover-modal'; //Calling for the gameover modal
 			}
 		});

@@ -14,6 +14,9 @@ header > div {
 header > div > img {
 	height: 50px;
 }
+body {
+	font-family: 'Architects Daughter', cursive;
+}
 
 #container {
 	position: relative;
@@ -189,9 +192,64 @@ header > div > img {
 	/* flex-direction: column; */
 	align-items: center;
 	justify-content: space-around;
+
+	background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 580px;
+    border: 2px solid #332d6d;
+    border-radius: 10px;
+    margin: 50px;
+    box-shadow: 4px 6px 6px 4px #333;
 }
 
 .player-avatar {
-	width: 500px;
-	height: 500px;
+	width: 250px;
+	height: 250px;
+}
+
+.button {
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 10px;
+	font-style: Lato, cursive;
+	margin: 6px;
+  }
+
+.button.red {
+	background-color: #f44336;
+}
+
+.button.blue {
+	background-color: #008CBA;
+}
+.button.green {
+	background-color: #4CAF50;
+}
+
+/*.player-info {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  	transition: 0.3s;
+	border-radius: 5px; /* 5px rounded corners 
+	flex-direction: column;
+}*/
+
+#gameover-modal {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 580px;
+    border: 2px solid #332d6d;
+    border-radius: 10px;
+    margin: 50px;
 }
